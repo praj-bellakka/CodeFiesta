@@ -33,6 +33,7 @@ dependencies:
   google_fonts: ^2.1.0
   json_annotation: ^3.1.1
   http: ^0.13.3
+  url_launcher: ^6.0.7
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -5,17 +5,16 @@ import 'package:codefiesta_app/pages/places_page.dart';
 import 'package:codefiesta_app/pages/profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class NavPage extends StatefulWidget {
-
   @override
   _NavPage createState() => _NavPage();
 }
 
 class _NavPage extends State<NavPage> {
   //keeps track of the current page displayed
-  int selectedPage = 0; 
+  int selectedPage = 0;
   //List of pages
   final _pageOptions = [
     Home(),
@@ -30,14 +29,15 @@ class _NavPage extends State<NavPage> {
       selectedPage = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text("App"),
       // ),
-      body:  _pageOptions.elementAt(selectedPage),
-      
+      body: _pageOptions.elementAt(selectedPage),
+
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -65,7 +65,6 @@ class _NavPage extends State<NavPage> {
             label: 'Profile',
             backgroundColor: Colors.black,
           ),
-
         ],
         currentIndex: selectedPage,
         selectedItemColor: Colors.amber[800],

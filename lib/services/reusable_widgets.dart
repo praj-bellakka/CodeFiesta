@@ -19,3 +19,54 @@ class ReusableTitleWidget extends StatelessWidget {
     );
   }
 }
+
+//creates small box with a header
+class ReusableBoxWidget extends StatelessWidget {
+  final header;
+  final subtitle;
+  final double fontsize;
+  const ReusableBoxWidget({this.header, this.subtitle, this.fontsize});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: MediaQuery.of(context).size.height * 0.2,
+        width: MediaQuery.of(context).size.width * 0.4,
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 5,
+              offset: const Offset(0, 5),
+            ),
+          ],
+        ),
+        padding: EdgeInsets.all(8),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(header, style: GoogleFonts.montserrat(
+                fontSize: fontsize,
+                fontWeight: FontWeight.w700,
+                color: Colors.black
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(subtitle, style: GoogleFonts.montserrat(
+                fontSize: fontsize - 2,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey[500]
+              ),
+            ),
+
+            )
+          ],
+        ));
+  }
+}
