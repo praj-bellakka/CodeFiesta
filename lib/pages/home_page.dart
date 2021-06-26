@@ -85,8 +85,8 @@ class _Home extends State<Home> {
               margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               child: Row(children: [
                 InkWell(
-                  onTap: () {
-                    _launchURL('https://www.mindef.gov.sg/web/portal/mindef/home');
+                  onTap: () async {
+                    await _launchURL('https://www.google.com');
                     print("pressed");
                   },
                   child: ReusableBoxWidget(
@@ -116,7 +116,7 @@ class _Home extends State<Home> {
 
 _launchURL(String url) async {
   if (await canLaunch(url)) {
-    await launch(url);
+    await launch(url, forceWebView: true);
   } else {
     throw 'Could not launch $url';
   }

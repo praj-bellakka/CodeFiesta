@@ -20,6 +20,37 @@ class ReusableTitleWidget extends StatelessWidget {
   }
 }
 
+class ReusableTagWidget extends StatelessWidget {
+  final title;
+  //final icon;
+  ReusableTagWidget({this.title});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.05,
+      width: MediaQuery.of(context).size.width * 0.3,
+      //margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black38,
+            blurRadius: 5,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Text(
+        '$title',
+        style: GoogleFonts.montserrat(
+            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.black),
+      ),
+    );
+  }
+}
+
 //creates small box with a header
 class ReusableBoxWidget extends StatelessWidget {
   final header;
@@ -49,22 +80,23 @@ class ReusableBoxWidget extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(header, style: GoogleFonts.montserrat(
-                fontSize: fontsize,
-                fontWeight: FontWeight.w700,
-                color: Colors.black
-                ),
+              child: Text(
+                header,
+                style: GoogleFonts.montserrat(
+                    fontSize: fontsize,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black),
               ),
             ),
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(subtitle, style: GoogleFonts.montserrat(
-                fontSize: fontsize - 2,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey[500]
+              child: Text(
+                subtitle,
+                style: GoogleFonts.montserrat(
+                    fontSize: fontsize - 2,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[500]),
               ),
-            ),
-
             )
           ],
         ));

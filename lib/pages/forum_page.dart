@@ -24,8 +24,51 @@ class _ForumPage extends State<ForumPage> {
         children: [
           SizedBox(height: 50),
           ReusableTitleWidget(title: "Forum", fontsize: 40, color: Colors.black),
+          SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              child: Row(children: [
+                InkWell(
+                  onTap: () async {
+
+                  },
+                  child: ReusableTagWidget(title: 'Featured Topics'),
+                ),
+                InkWell(
+                  onTap: () async {
+
+                  },
+                  child: ReusableTagWidget(title: 'My Intersts'),
+                ),
+                InkWell(
+                  onTap: () async {
+
+                  },
+                  child: ReusableTagWidget(title: 'Sports'),
+                ),
+
+              ]),
+
+            ),
+          ),
+          // ListView.builder(
+          //   itemCount: listItemsSample.length,
+          //   itemBuilder: (context, index) {
+          //     return ListTile(
+          //       title: Text(listItemsSample[index]),
+          //     );
+          //   },
+          // ),
+
+
           
         ],
     ));
   }
 }
+
+final listItemsSample = ['Albania', 'Andorra', 'Armenia', 'Austria', 
+    'Azerbaijan', 'Belarus', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria',
+    'Croatia'];
