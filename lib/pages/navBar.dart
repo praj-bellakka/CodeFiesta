@@ -33,9 +33,9 @@ class _NavPage extends State<NavPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("App"),
-      ),
+      // appBar: AppBar(
+      //   title: const Text("App"),
+      // ),
       body:  _pageOptions.elementAt(selectedPage),
       
       bottomNavigationBar: BottomNavigationBar(
