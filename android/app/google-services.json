@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "769549873378",
+    "project_id": "codefiesta-sgapp",
+    "storage_bucket": "codefiesta-sgapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769549873378:android:f873395b8ee2e27d68eebb",
+        "android_client_info": {
+          "package_name": "com.example.codefiesta_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769549873378-ecn14paalurdpjgjq7nm6d56rmf6kegk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYUGD-s6d62ytHQkqbIC0NVNelSRxo_vU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769549873378-ecn14paalurdpjgjq7nm6d56rmf6kegk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

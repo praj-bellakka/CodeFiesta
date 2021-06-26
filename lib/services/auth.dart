@@ -1,9 +1,12 @@
+import 'package:codefiesta_app/pages/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import '../main.dart';
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
+class AuthService {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  //create user obj based on firebase user
+  //Create firebase
   UserProfile _userFromFirebaseUser(User user) {
     return user != null ? UserProfile(uid: user.uid) : null;
   }
@@ -25,20 +28,20 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
     }
   }
 
-  //sign in w email
+  //sign in with email
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User user = result.user;
       return _userFromFirebaseUser(user);
-    } catch (e) {
-      print(e.toString());
+    } catch (error) {
+      print(error.toString());
       return null;
     }
   }
 
-  //register w email
+  //Register account with email
   Future registerWithEmailAndPassword(String email, String password) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
@@ -50,23 +53,37 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
     }
   }
 
-  //reset password
-  Future resetPasswordWithEmail(String email) async {
-    try {
-      await _auth.sendPasswordResetEmail(email: email);
-    } catch (e) {
-      print(e);
-      return e.code;
-    }
-  }
-
-  //sign out
+  //Sign out profile
   Future signOut() async {
     try {
       return await _auth.signOut();
-    } catch (e) {
-      print(e.toString());
+    } catch (error) {
+      print(error.toString());
       return null;
+    }
+  }
+}
+
+
+class Authenticate extends StatefulWidget {
+  @override
+  _AuthenticateState createState() => _AuthenticateState();
+}
+
+class _AuthenticateState extends State<Authenticate> {
+  bool showSignIn = true;
+  void toggleView() {
+    setState(() {
+      showSignIn = !showSignIn;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (showSignIn) {
+      return SignIn(toggleView: toggleView);
+    } else {
+      //return Register(toggleView: toggleView);
     }
   }
 }
