@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lorem_ipsum/lorem_ipsum.dart';
 
 class ReusableTitleWidget extends StatelessWidget {
   final title;
@@ -100,5 +101,82 @@ class ReusableBoxWidget extends StatelessWidget {
             )
           ],
         ));
+  }
+}
+
+//Friends PopUP Modal
+
+class ReusablePopupFriendsWidget extends StatelessWidget {
+  final name;
+  final tags;
+
+  const ReusablePopupFriendsWidget({this.name, this.tags});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //backgroundColor: Colors.transparent,
+      child: Center(
+        child: Container(
+            height: MediaQuery.of(context).size.height * 0.6,
+            width: MediaQuery.of(context).size.width * 0.9,
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), color: Colors.white),
+            child: Column(
+                //IconButton(onPressed: () {  },
+                children: [
+                  ReusableTitleWidget(
+                      title: name, color: Colors.black, fontsize: 30.0),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(loremIpsum(words: 20, initWithLorem: true),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 20, fontWeight: FontWeight.w500)),
+                  ),
+                  SizedBox(height: 10),
+                  Expanded(
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: tags.length,
+                          padding: EdgeInsets.all(10),
+                          itemBuilder: (context, index) {
+                            return Container(
+                                width: 100,
+                                height: 30,
+                                margin: EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.grey[700]),
+                                child: Text(tags[index],
+                                    style: GoogleFonts.montserrat(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.white),
+                                    textAlign: TextAlign.center));
+                          })),
+                  SizedBox(height: 20),
+                  Container(
+                      margin: EdgeInsets.all(10),
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: TextButton(
+                        onPressed: () {
+                          print('added as friend');
+                          Navigator.pop(context, 'true');
+                        },
+                        child: Text("Add as friend",
+                            style: GoogleFonts.montserrat(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18)),
+                      )),
+                ])),
+      ),
+    );
   }
 }

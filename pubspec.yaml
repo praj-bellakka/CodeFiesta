@@ -37,6 +37,7 @@ dependencies:
   flutter_map: ^0.13.1
   latlong2: ^0.8.0
   flutter_map_marker_popup: ^1.0.0+1
+  lorem_ipsum: ^0.0.1
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,3 +1,4 @@
+import 'package:codefiesta_app/pages/register_page.dart';
 import 'package:codefiesta_app/pages/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -83,7 +84,7 @@ class _AuthenticateState extends State<Authenticate> {
     if (showSignIn) {
       return SignIn(toggleView: toggleView);
     } else {
-      //return Register(toggleView: toggleView);
+      return Register(toggleView: toggleView);
     }
   }
 }

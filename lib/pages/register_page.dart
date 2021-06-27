@@ -1,3 +1,4 @@
+import 'package:codefiesta_app/pages/navBar.dart';
 import 'package:codefiesta_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -163,7 +164,10 @@ class _RegisterState extends State<Register> {
                           dynamic result = await _auth
                               .registerWithEmailAndPassword(email, password);
                           if (result != null) {
-                            print("success");
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NavPage()));
                           }
                         }
                       },
