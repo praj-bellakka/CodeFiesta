@@ -10,7 +10,16 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
-  var country = 'UK';
+  static final List<String> items = [
+    'United Kingdom',
+    'USA',
+    'Japan',
+    'Germany',
+    'France',
+    'South Korea'
+  ];
+  String value = items.first;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +32,7 @@ class _Home extends State<Home> {
               color: Colors.black),
           SizedBox(height: 10),
           Container(
-            width: double.infinity,
+            width: double.infinity,               
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -50,6 +59,25 @@ class _Home extends State<Home> {
                 )),
           ),
           SizedBox(height: 35),
+          DropdownButton(
+            value: value,
+            style: GoogleFonts.montserrat(color: Colors.white),
+            items: items.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                  style: TextStyle(color: Colors.black),
+                ),
+              );
+            }).toList(),
+            hint: Text('I am based in...',
+                style: GoogleFonts.montserrat(
+                    color: Colors.black, fontWeight: FontWeight.w500)),
+            onChanged: (value) => setState(() {
+              this.value = value;
+            }),
+          ),
           ReusableTitleWidget(
               title: "Guides", fontsize: 20, color: Colors.black),
           SingleChildScrollView(
@@ -119,7 +147,6 @@ class _Home extends State<Home> {
                     fontsize: 16,
                   ),
                 ),
-
               ]),
             ),
           ),
