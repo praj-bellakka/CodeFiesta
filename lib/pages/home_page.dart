@@ -87,7 +87,8 @@ class _Home extends State<Home> {
               child: Row(children: [
                 InkWell(
                   onTap: () async {
-                    await _launchURL('https://www.google.com');
+                    //await _launchURL('https://www.google.com');
+                    launch("https://www.mindef.gov.sg");
                     print("pressed");
                   },
                   child: ReusableBoxWidget(
@@ -97,15 +98,28 @@ class _Home extends State<Home> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async {
                     print("pressed");
+                    launch("https://mfa.gov.sg");
                   },
                   child: ReusableBoxWidget(
-                    header: "$country Embassy",
+                    header: "SG Embassy",
                     subtitle: "Important",
                     fontsize: 16,
                   ),
                 ),
+                InkWell(
+                  onTap: () async {
+                    print("pressed");
+                    launch("https://www.bbc.com/");
+                  },
+                  child: ReusableBoxWidget(
+                    header: "BBC News",
+                    subtitle: "Latest updates",
+                    fontsize: 16,
+                  ),
+                ),
+
               ]),
             ),
           ),
