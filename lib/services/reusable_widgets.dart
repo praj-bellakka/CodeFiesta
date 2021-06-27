@@ -10,7 +10,7 @@ class ReusableTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 20),
+      padding: EdgeInsets.only(left: 20),
       alignment: Alignment.centerLeft,
       child: Text(
         '$title',
@@ -28,8 +28,9 @@ class ReusableTagWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.05,
-      width: MediaQuery.of(context).size.width * 0.35,
+      constraints: BoxConstraints(minWidth: 100, maxWidth: 200),
+      //height: MediaQuery.of(context).size.height * 0.05,
+      //width: MediaQuery.of(context).size.width * 0.35,
       //margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
@@ -180,3 +181,54 @@ class ReusablePopupFriendsWidget extends StatelessWidget {
     );
   }
 }
+
+class ReusableBigBoxWidget extends StatelessWidget {
+   final header;
+   final subtitle;
+   final double fontsize;
+   const ReusableBigBoxWidget({this.header, this.subtitle, this.fontsize});
+
+   @override
+   Widget build(BuildContext context) {
+     return Container(
+         height: 175,
+         width: 175,
+         margin: EdgeInsets.symmetric(horizontal: 10),
+         decoration: BoxDecoration(
+           borderRadius: BorderRadius.all(Radius.circular(20)),
+           color: Colors.white,
+           boxShadow: [
+             BoxShadow(
+               color: Colors.black38,
+               blurRadius: 5,
+               offset: const Offset(0, 5),
+             ),
+           ],
+         ),
+         padding: EdgeInsets.all(8),
+         child: Column(
+           children: [
+             Align(
+               alignment: Alignment.centerLeft,
+               child: Text(
+                 header,
+                 style: GoogleFonts.montserrat(
+                     fontSize: fontsize,
+                     fontWeight: FontWeight.w700,
+                     color: Colors.black),
+               ),
+             ),
+             Align(
+               alignment: Alignment.centerLeft,
+               child: Text(
+                 subtitle,
+                 style: GoogleFonts.montserrat(
+                     fontSize: fontsize - 2,
+                     fontWeight: FontWeight.w500,
+                     color: Colors.grey[500]),
+               ),
+             )
+           ],
+         ));
+   }
+ }
