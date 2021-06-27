@@ -1,3 +1,4 @@
+import 'package:codefiesta_app/pages/topics_page.dart';
 import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _ForumPage extends State<ForumPage> {
     return Scaffold(
         body: Column(
       children: [
-        SizedBox(height: 50),
+        SizedBox(height: 60),
         ReusableTitleWidget(title: "Forum", fontsize: 40, color: Colors.black),
         SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -34,6 +35,7 @@ class _ForumPage extends State<ForumPage> {
                 },
                 child: ReusableTagWidget(title: 'Featured Topics'),
               ),
+              SizedBox(width: 15),
               InkWell(
                 onTap: () {
                   setState(() {
@@ -43,11 +45,13 @@ class _ForumPage extends State<ForumPage> {
                 },
                 child: ReusableTagWidget(title: 'My Interests'),
               ),
+              SizedBox(width: 15),
               InkWell(
                 onTap: () {
                   setState(() {
-                    displayedList =
-                        listItemsSample.where((i) => i.name == 'Football').toList();
+                    displayedList = listItemsSample
+                        .where((i) => i.name == 'Football')
+                        .toList();
                   });
                 },
                 child: ReusableTagWidget(title: 'Sports'),
@@ -71,7 +75,8 @@ class _ForumPage extends State<ForumPage> {
                       icon: Icon(Icons.add),
                       onPressed: () {
                         setState(() {
-                          listItemsSample[index].myTag = !listItemsSample[index].myTag;
+                          listItemsSample[index].myTag =
+                              !listItemsSample[index].myTag;
                         });
                       },
                     ),
@@ -87,6 +92,10 @@ class _ForumPage extends State<ForumPage> {
                               fontWeight: FontWeight.normal,
                             )),
                     onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => TopicsPage(pageName:'${displayedList[index].name}'))
+                      );
                     },
                   ),
                 ),
@@ -109,6 +118,8 @@ class ForumItems {
 List<ForumItems> listItemsSample = [
   ForumItems('Work', 30, true),
   ForumItems('Covid-19', 330, false),
+  ForumItems('Celebrity drama', 999, false),
+  ForumItems('Stock trends', 78, false),
   ForumItems('School', 130, false),
   ForumItems('Football', 930, false),
   ForumItems('Crime', 303, false),
