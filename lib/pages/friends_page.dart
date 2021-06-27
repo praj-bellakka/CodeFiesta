@@ -1,4 +1,5 @@
 
+import 'package:codefiesta_app/pages/interest_page.dart';
 import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -325,20 +326,44 @@ class _FriendsPage extends State<FriendsPage> {
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                         child: Row(children: [
-                          ReusableBoxWidget(
-                            header: "Pottery Lovers",
-                            subtitle: "",
-                            fontsize: 16,
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => InterestPage())
+                              );
+                            },
+                            child: ReusableBoxWidget(
+                              header: "Pottery Lovers",
+                              subtitle: "",
+                              fontsize: 16,
+                            ),
                           ),
-                          ReusableBoxWidget(
-                            header: "Daily Jogs",
-                            subtitle: "",
-                            fontsize: 16,
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => InterestPage())
+                              );
+                            },
+                            child: ReusableBoxWidget(
+                              header: "Daily Jogs",
+                              subtitle: "",
+                              fontsize: 16,
+                            ),
                           ),
-                          ReusableBoxWidget(
-                            header: "Singapore Coders",
-                            subtitle: "",
-                            fontsize: 16,
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => InterestPage())
+                              );
+                            },
+                            child: ReusableBoxWidget(
+                              header: "Singapore Coders",
+                              subtitle: "",
+                              fontsize: 16,
+                            ),
                           ),
                         ]),
                       ),
@@ -348,28 +373,60 @@ class _FriendsPage extends State<FriendsPage> {
                     // Sub-Title 2
                     ReusableTitleWidget(title: "You Might Be Interested In", fontsize: 20, color: Colors.black,),
                     Row(children: [
-                      ReusableBigBoxWidget(
-                        header: "Golfing",
-                        subtitle: "Break a sweat...",
-                        fontsize: 16,
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => InterestPage())
+                          );
+                        },
+                        child: ReusableBigBoxWidget(
+                          header: "Golfing",
+                          subtitle: "Break a sweat...",
+                          fontsize: 16,
+                        ),
                       ),
-                      ReusableBigBoxWidget(
-                        header: "Fishing Funs",
-                        subtitle: "Catch a big one...",
-                        fontsize: 16,
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => InterestPage())
+                          );
+                        },
+                        child: ReusableBigBoxWidget(
+                          header: "Fishing Funs",
+                          subtitle: "Catch a big one...",
+                          fontsize: 16,
+                        ),
                       ),
                     ]),
                     SizedBox(height: 10,),
                     Row(children: [
-                      ReusableBigBoxWidget(
-                        header: "Casino Trips",
-                        subtitle: "Try your luck...",
-                        fontsize: 16,
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => InterestPage())
+                          );
+                        },
+                        child: ReusableBigBoxWidget(
+                          header: "Casino Trips",
+                          subtitle: "Try your luck...",
+                          fontsize: 16,
+                        ),
                       ),
-                      ReusableBigBoxWidget(
-                        header: "Italian Cooking",
-                        subtitle: "Cook your own carbonara today...",
-                        fontsize: 16,
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => InterestPage())
+                          );
+                        },
+                        child: ReusableBigBoxWidget(
+                          header: "Italian Cooking",
+                          subtitle: "Cook your own carbonara today...",
+                          fontsize: 16,
+                        ),
                       ),
                     ]),
 
