@@ -25,7 +25,14 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       backgroundColor: Colors.white,
       body: Container(
@@ -38,7 +45,7 @@ class _RegisterState extends State<Register> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Register An Account!",
+                    "Create An Account!",
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontWeight: FontWeight.w900,
@@ -66,13 +73,13 @@ class _RegisterState extends State<Register> {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color.fromRGBO(104, 90, 146, 0.7),
+                      fillColor: Colors.grey[200],
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: BorderSide.none,
                       ),
                       labelText: "Email",
-                      labelStyle: GoogleFonts.montserrat(color: Colors.white),
+                      labelStyle: GoogleFonts.montserrat(color: Colors.black),
                       //textInputDecorations.copyWith(hintText: 'Email'),
                     ),
                     onChanged: (val) {
@@ -95,18 +102,18 @@ class _RegisterState extends State<Register> {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
-                        icon: Icon(Icons.remove_red_eye),
+                        icon: Icon(Icons.remove_red_eye, color: Colors.black),
                         color: Colors.white,
                         onPressed: () {},
                       ),
                       filled: true,
-                      fillColor: Color.fromRGBO(104, 90, 146, 0.7),
+                      fillColor: Colors.grey[200],
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: BorderSide.none,
                       ),
                       labelText: "Password",
-                      labelStyle: GoogleFonts.montserrat(color: Colors.white),
+                      labelStyle: GoogleFonts.montserrat(color: Colors.black),
                       //textInputDecorations.copyWith(hintText: 'Email'),
                     ),
                     onChanged: (val) {
@@ -129,18 +136,18 @@ class _RegisterState extends State<Register> {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
-                        icon: Icon(Icons.remove_red_eye),
+                        icon: Icon(Icons.remove_red_eye, color: Colors.black),
                         color: Colors.white,
                         onPressed: () {},
                       ),
                       filled: true,
-                      fillColor: Color.fromRGBO(104, 90, 146, 0.7),
+                      fillColor: Colors.grey[200],
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: BorderSide.none,
                       ),
                       labelText: "Confirm Password",
-                      labelStyle: GoogleFonts.montserrat(color: Colors.white),
+                      labelStyle: GoogleFonts.montserrat(color: Colors.black),
                     ),
                     onChanged: (val) {
                       setState(() => password = val);
@@ -153,8 +160,8 @@ class _RegisterState extends State<Register> {
                     width: MediaQuery.of(context).size.width * 0.6,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(148, 233, 174, 1),
-                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: TextButton(
                       onPressed: () async {
@@ -173,12 +180,12 @@ class _RegisterState extends State<Register> {
                       },
                       child: Text("REGISTER ACCOUNT",
                           style: GoogleFonts.montserrat(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontWeight: FontWeight.w600,
                               fontSize: 18)),
                     )),
                 SizedBox(
-                  height: 20.0,
+                  height: 0,
                 ),
                 Text(
                   error,

@@ -25,9 +25,9 @@ class _Home extends State<Home> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 50),
+          SizedBox(height: 70),
           ReusableTitleWidget(
-              title: "Singapore Global \nNetwork",
+              title: "HomeAway",
               fontsize: 35,
               color: Colors.black),
           SizedBox(height: 10),

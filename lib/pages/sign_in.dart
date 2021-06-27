@@ -39,10 +39,19 @@ class _SignInState extends State<SignIn> {
                 children: <Widget>[
                   Column(
                     children: [
-                      //TODO: Add profile page
-                      //Image(image: AssetImage('')),
+                      Container(
+                        width: 250.0,
+                        height: 250.0,
+                          alignment: Alignment.center,
+                          decoration: new BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/home.png'),
+                              fit: BoxFit.fill
+                          ),
+                        ),
+                      ),
                       SizedBox(
-                        height: 50,
+                        height: 0,
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -75,14 +84,14 @@ class _SignInState extends State<SignIn> {
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(104, 90, 146, 0.7),
+                            fillColor: Colors.grey[200],
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                               borderSide: BorderSide.none,
                             ),
                             labelText: "Email",
                             labelStyle:
-                                GoogleFonts.montserrat(color: Colors.white),
+                                GoogleFonts.montserrat(color: Colors.black),
                             //textInputDecorations.copyWith(hintText: 'Email'),
                           ),
                           onChanged: (val) {
@@ -90,7 +99,7 @@ class _SignInState extends State<SignIn> {
                           },
                         ),
                       ),
-                      SizedBox(height: 15),
+                      SizedBox(height: 5),
                       //Password container
                       Container(
                         child: TextFormField(
@@ -101,21 +110,21 @@ class _SignInState extends State<SignIn> {
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                             suffixIcon: IconButton(
-                              icon: Icon(Icons.remove_red_eye),
+                              icon: Icon(Icons.remove_red_eye, color: Colors.black),
                               color: Colors.white,
                               onPressed: () {
                                 _togglePassword();
                               },
                             ),
                             filled: true,
-                            fillColor: Color.fromRGBO(104, 90, 146, 0.7),
+                            fillColor: Colors.grey[200],
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                               borderSide: BorderSide.none,
                             ),
                             labelText: "Password",
                             labelStyle:
-                                GoogleFonts.montserrat(color: Colors.white),
+                                GoogleFonts.montserrat(color: Colors.black),
                           ),
                           onChanged: (val) {
                             setState(() => password = val);
@@ -135,14 +144,14 @@ class _SignInState extends State<SignIn> {
                                       TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
                             ])),
                       )),
-                      SizedBox(height: 60.0),
+                      SizedBox(height: 0.0),
                       Container(
                           margin: EdgeInsets.all(10),
                           width: MediaQuery.of(context).size.width * 0.6,
                           height: 60,
                           decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: TextButton(
                             onPressed: () async {
@@ -154,7 +163,7 @@ class _SignInState extends State<SignIn> {
                             //style: TextButton.styleFrom(primary: Colors.transparent),
                             child: Text("SIGN IN",
                               style: GoogleFonts.montserrat(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 18)),
                           )),
@@ -177,7 +186,7 @@ class _SignInState extends State<SignIn> {
                                 fontSize: 18)),
                       )),   
                       Container(
-                          margin: EdgeInsets.all(10),
+                          margin: EdgeInsets.all(0),
                           width: MediaQuery.of(context).size.width * 0.8,
                           height: 40,
                           //color: Color.fromRGBO(148, 233, 174, 1),
