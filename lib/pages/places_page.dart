@@ -4,7 +4,6 @@ import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:lorem_ipsum/lorem_ipsum.dart';
 
@@ -78,7 +77,7 @@ class _PlacesPage extends State<PlacesPage> {
         ),
         Container(
             width: MediaQuery.of(context).size.width * 1,
-            height: MediaQuery.of(context).size.width * 1.4 - 3,
+            height: MediaQuery.of(context).size.height * 0.70,
             child: FlutterMap(
               options: MapOptions(
                   center: LatLng(51.5, -0.09),
