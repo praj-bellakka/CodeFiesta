@@ -53,6 +53,55 @@ class ReusableTagWidget extends StatelessWidget {
   }
 }
 
+class ReusableDarkTagWidget extends StatelessWidget {
+  final title;
+  //final icon;
+  ReusableDarkTagWidget({this.title});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints(minWidth: 10, maxWidth: 200),
+      //height: MediaQuery.of(context).size.height * 0.05,
+      //width: MediaQuery.of(context).size.width * 0.35,
+      //margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        color: Colors.grey,
+      ),
+      child: Text(
+        '$title',
+        style: GoogleFonts.montserrat(
+            fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black),
+      ),
+    );
+  }
+}
+
+class ReusableLightTagWidget extends StatelessWidget {
+  final title;
+  //final icon;
+  ReusableLightTagWidget({this.title});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints(minWidth: 10, maxWidth: 200),
+      //height: MediaQuery.of(context).size.height * 0.05,
+      //width: MediaQuery.of(context).size.width * 0.35,
+      //margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        color: Colors.black12,
+      ),
+      child: Text(
+        '$title',
+        style: GoogleFonts.montserrat(
+            fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black),
+      ),
+    );
+  }
+}
 //creates small box with a header
 class ReusableBoxWidget extends StatelessWidget {
   final header;
