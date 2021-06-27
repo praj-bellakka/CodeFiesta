@@ -70,7 +70,7 @@ class _RegisterState extends State<Register> {
                 Container(
                   child: TextFormField(
                     validator: (val) => val.isEmpty ? 'Enter an email' : null,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -99,7 +99,7 @@ class _RegisterState extends State<Register> {
                             ? 'Passowrds do not match'
                             : null),
                     obscureText: true,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         icon: Icon(Icons.remove_red_eye, color: Colors.black),
@@ -133,7 +133,7 @@ class _RegisterState extends State<Register> {
                             ? 'Passowrds do not match'
                             : null),
                     obscureText: true,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         icon: Icon(Icons.remove_red_eye, color: Colors.black),

@@ -56,7 +56,7 @@ class _NavPage extends State<NavPage> {
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.child_friendly),
+            icon: Icon(Icons.event),
             label: 'Meets',
             backgroundColor: Colors.black,
           ),

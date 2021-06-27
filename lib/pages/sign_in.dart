@@ -81,7 +81,7 @@ class _SignInState extends State<SignIn> {
                         child: TextFormField(
                           validator: (val) =>
                               val.isEmpty ? 'Enter an email' : null,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey[200],
@@ -107,7 +107,7 @@ class _SignInState extends State<SignIn> {
                           validator: (val) =>
                               val.length < 8 ? 'Password too short' : null,
                           obscureText: _obscureText,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black),
                           decoration: InputDecoration(
                             suffixIcon: IconButton(
                               icon: Icon(Icons.remove_red_eye, color: Colors.black),
