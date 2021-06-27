@@ -9,6 +9,8 @@ class ForumPage extends StatefulWidget {
   _ForumPage createState() => _ForumPage();
 }
 
+int tag = 1;
+
 class _ForumPage extends State<ForumPage> {
   //keeps track of the current page displayed
   int selectedPage = 1;
@@ -30,31 +32,34 @@ class _ForumPage extends State<ForumPage> {
               InkWell(
                 onTap: () {
                   setState(() {
+                    tag = 1;
                     displayedList = listItemsSample;
                   });
                 },
-                child: ReusableTagWidget(title: 'Featured Topics'),
+                child: tag == 1 ? ReusableClickedTagWidget(title: 'Featured Topics') : ReusableTagWidget(title: 'Featured Topics'),
               ),
               SizedBox(width: 15),
               InkWell(
                 onTap: () {
                   setState(() {
+                    tag = 2;
                     displayedList =
                         listItemsSample.where((i) => i.myTag == true).toList();
                   });
                 },
-                child: ReusableTagWidget(title: 'My Interests'),
+                child: tag == 2 ? ReusableClickedTagWidget(title: 'My Interests') : ReusableTagWidget(title: 'My Interests'),
               ),
               SizedBox(width: 15),
               InkWell(
                 onTap: () {
                   setState(() {
+                    tag = 3;
                     displayedList = listItemsSample
                         .where((i) => i.name == 'Football')
                         .toList();
                   });
                 },
-                child: ReusableTagWidget(title: 'Sports'),
+                child: tag == 3 ? ReusableClickedTagWidget(title: 'Sports') : ReusableTagWidget(title: 'Sports'),
               ),
             ]),
           ),

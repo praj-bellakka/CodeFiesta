@@ -12,6 +12,8 @@ class PlacesPage extends StatefulWidget {
   _PlacesPage createState() => _PlacesPage();
 }
 
+int tag = 1;
+
 class _PlacesPage extends State<PlacesPage> {
   //keeps track of the current page displayed
   int selectedPage = 2;
@@ -47,30 +49,32 @@ class _PlacesPage extends State<PlacesPage> {
               InkWell(
                 onTap: () {
                   setState(() {
+                    tag = 1;
                     markers = markerAll;
-                    //displayedList = listItemsSample;
                   });
                 },
-                child: ReusableTagWidget(title: 'All'),
+                child: tag == 1 ? ReusableClickedTagWidget(title: 'All') : ReusableTagWidget(title: 'All'),
               ),
               SizedBox(width: 10),
               InkWell(
                 onTap: () {
                   setState(() {
+                    tag = 2;
                     markers = markerFriends;
                   });
                 },
-                child: ReusableTagWidget(title: 'My Friends'),
+                child: tag == 2 ? ReusableClickedTagWidget(title: 'My Friends') : ReusableTagWidget(title: 'My Friends'),
               ),
               SizedBox(width: 10),
               InkWell(
                 onTap: () {
                   setState(() {
+                    tag = 3;
                     // displayedList =
                     //     listItemsSample.where((i) => i.name == 'Football').toList();
                   });
                 },
-                child: ReusableTagWidget(title: 'Matches'),
+                child: tag == 3 ? ReusableClickedTagWidget(title: 'Matches') : ReusableTagWidget(title: 'Matches'),
               ),
             ]),
           ),

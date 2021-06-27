@@ -53,6 +53,38 @@ class ReusableTagWidget extends StatelessWidget {
   }
 }
 
+class ReusableClickedTagWidget extends StatelessWidget {
+  final title;
+  //final icon;
+  ReusableClickedTagWidget({this.title});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints(minWidth: 100, maxWidth: 200),
+      //height: MediaQuery.of(context).size.height * 0.05,
+      //width: MediaQuery.of(context).size.width * 0.35,
+      //margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        color: Colors.grey,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black38,
+            blurRadius: 5,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Text(
+        '$title',
+        style: GoogleFonts.montserrat(
+            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.black),
+      ),
+    );
+  }
+}
+
 class ReusableDarkTagWidget extends StatelessWidget {
   final title;
   //final icon;

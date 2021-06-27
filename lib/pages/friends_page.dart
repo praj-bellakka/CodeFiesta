@@ -10,6 +10,7 @@ class FriendsPage extends StatefulWidget {
 }
 // true -- Events , false -- Interest Groups
 bool tag = true;
+int subtag = 1;
 
 class _FriendsPage extends State<FriendsPage> {
   //keeps track of the current page displayed
@@ -37,7 +38,7 @@ class _FriendsPage extends State<FriendsPage> {
                               tag = true;
                             });
                           },
-                          child: ReusableTagWidget(title: 'Events',),
+                          child: ReusableClickedTagWidget(title: 'Events',),
                         ),
                         SizedBox(width: 10), //Spacing between tags
                         InkWell(
@@ -220,7 +221,7 @@ class _FriendsPage extends State<FriendsPage> {
                                 tag = false;
                               });
                             },
-                            child: ReusableTagWidget(title: "Interest Groups",),
+                            child: ReusableClickedTagWidget(title: "Interest Groups",),
                           ),
                         ],)
                     ),
@@ -234,19 +235,39 @@ class _FriendsPage extends State<FriendsPage> {
                           padding: EdgeInsets.all(10),
                           child: Row(children: [
                             InkWell(
-                              child: ReusableTagWidget(title: 'My Interests',),
+                              onTap: () {
+                                setState(() {
+                                  subtag = 1;
+                                });
+                              },
+                              child: subtag == 1 ? ReusableClickedTagWidget(title: 'My Interests') : ReusableTagWidget(title: 'My Interests'),
                             ),
                             SizedBox(width: 10), //Spacing between tags
                             InkWell(
-                              child: ReusableTagWidget(title: "Featured",),
+                              onTap: () {
+                                setState(() {
+                                  subtag = 2;
+                                });
+                              },
+                              child: subtag == 2 ? ReusableClickedTagWidget(title: 'Featured') : ReusableTagWidget(title: 'Featured'),
                             ),
                             SizedBox(width: 10), //Spacing between tags
                             InkWell(
-                              child: ReusableTagWidget(title: "Most Active",),
+                              onTap: () {
+                                setState(() {
+                                  subtag = 3;
+                                });
+                              },
+                              child: subtag == 3 ? ReusableClickedTagWidget(title: 'Most Active') : ReusableTagWidget(title: 'Most Active'),
                             ),
                             SizedBox(width: 10), //Spacing between tags
                             InkWell(
-                              child: ReusableTagWidget(title: "Newest",),
+                              onTap: () {
+                                setState(() {
+                                  subtag = 4;
+                                });
+                              },
+                              child: subtag == 4 ? ReusableClickedTagWidget(title: 'Newest') : ReusableTagWidget(title: 'Newest'),
                             )
                           ],)
                       ),
