@@ -49,7 +49,7 @@ class _Home extends State<Home> {
                   disabledBorder: InputBorder.none,
                 )),
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 35),
           ReusableTitleWidget(
               title: "Guides", fontsize: 20, color: Colors.black),
           SingleChildScrollView(
@@ -76,6 +76,7 @@ class _Home extends State<Home> {
               ]),
             ),
           ),
+          SizedBox(height: 20),
           ReusableTitleWidget(
               title: "Useful Links", fontsize: 20, color: Colors.black),
           SingleChildScrollView(
