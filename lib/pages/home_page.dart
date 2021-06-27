@@ -18,7 +18,7 @@ class _Home extends State<Home> {
     'France',
     'South Korea'
   ];
-  String value = items.first;
+  String country = items.first;
 
   @override
   Widget build(BuildContext context) {
@@ -58,26 +58,32 @@ class _Home extends State<Home> {
                   disabledBorder: InputBorder.none,
                 )),
           ),
-          SizedBox(height: 35),
-          DropdownButton(
-            value: value,
-            style: GoogleFonts.montserrat(color: Colors.white),
-            items: items.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(
-                  value,
-                  style: TextStyle(color: Colors.black),
-                ),
-              );
-            }).toList(),
-            hint: Text('I am based in...',
-                style: GoogleFonts.montserrat(
-                    color: Colors.black, fontWeight: FontWeight.w500)),
-            onChanged: (value) => setState(() {
-              this.value = value;
-            }),
+          SizedBox(height: 20),
+          Row(
+            children: [
+            ReusableTitleWidget(title: 'I am based in:   ', fontsize: 20, color: Colors.black,),
+            DropdownButton(
+              value: country,
+              style: GoogleFonts.montserrat(color: Colors.white),
+              items: items.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    "$value",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                );
+              }).toList(),
+              hint: Text('I am based in...',
+                  style: GoogleFonts.montserrat(
+                      color: Colors.black, fontWeight: FontWeight.w500)),
+              onChanged: (value) => setState(() {
+                this.country = value;
+              }),
+            ),
+            ],
           ),
+          
           ReusableTitleWidget(
               title: "Guides", fontsize: 20, color: Colors.black),
           SingleChildScrollView(
@@ -87,18 +93,18 @@ class _Home extends State<Home> {
               margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               child: Row(children: [
                 ReusableBoxWidget(
-                  header: "How to Survive in UK",
-                  subtitle: "trololol",
+                  header: "How to Survive in $country",
+                  subtitle: "5 ways you will have the time of your life!",
                   fontsize: 16,
                 ),
                 ReusableBoxWidget(
                   header: "Sightseeing tips",
-                  subtitle: "Nice places to visit",
+                  subtitle: "Nice places to visit in $country",
                   fontsize: 16,
                 ),
                 ReusableBoxWidget(
-                  header: "How to adjust",
-                  subtitle: "Learn how to live here!",
+                  header: "Hidden Gems in $country",
+                  subtitle: "Find out places in $country that you can't believe exists!",
                   fontsize: 16,
                 ),
               ]),
@@ -143,7 +149,7 @@ class _Home extends State<Home> {
                   },
                   child: ReusableBoxWidget(
                     header: "BBC News",
-                    subtitle: "Latest updates",
+                    subtitle: "Find out the latest news in $country",
                     fontsize: 16,
                   ),
                 ),
