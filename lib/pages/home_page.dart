@@ -183,7 +183,7 @@ class _Home extends State<Home> {
                             'assets/homebanner.jpg'),
                           fit: BoxFit.fill,
                         ),
-                        border: Border.all(color: Color(0xFFE0EBF2)),
+                        border: Border.all(color: Color(0xFFf0f0f0)),
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         boxShadow: [
                           BoxShadow(
@@ -214,7 +214,7 @@ class _Home extends State<Home> {
                                         'assets/medical-mask.png'),
                                     fit: BoxFit.fill,
                                   ),
-                                  border: Border.all(color: Color(0xFFE0EBF2)),
+                                  border: Border.all(color: Color(0xFFf0f0f0)),
                                 ),
                               ),
                               Container(
@@ -239,7 +239,7 @@ class _Home extends State<Home> {
                                         'assets/village.png'),
                                     fit: BoxFit.fill,
                                   ),
-                                  border: Border.all(color: Color(0xFFE0EBF2)),
+                                  border: Border.all(color: Color(0xFFf0f0f0)),
                                 ),
                               ),
                               Container(
@@ -264,7 +264,7 @@ class _Home extends State<Home> {
                                         'assets/business.png'),
                                     fit: BoxFit.fill,
                                   ),
-                                  border: Border.all(color: Color(0xFFE0EBF2)),
+                                  border: Border.all(color: Color(0xFFf0f0f0)),
                                 ),
                               ),
                               Container(
@@ -289,7 +289,7 @@ class _Home extends State<Home> {
                                         'assets/camcorder.png'),
                                     fit: BoxFit.fill,
                                   ),
-                                  border: Border.all(color: Color(0xFFE0EBF2)),
+                                  border: Border.all(color: Color(0xFFf0f0f0)),
                                 ),
                               ),
                               Container(
@@ -322,19 +322,22 @@ class _Home extends State<Home> {
                         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                         child: Row(children: [
                           ReusableBoxWidget(
-                            header: "How to Survive in $country",
-                            subtitle: "5 ways you will have the time of your life!",
+                            header: "What to expect",
+                            subtitle: "Planning to return or mig...",
                             fontsize: 16,
+                            path: 'assets/home1.jpg',
                           ),
                           ReusableBoxWidget(
-                            header: "Sightseeing tips",
-                            subtitle: "Nice places to visit in $country",
+                            header: "Moving overseas",
+                            subtitle: "Checklists, visa, acc...",
                             fontsize: 16,
+                            path: 'assets/home2.jpg',
                           ),
                           ReusableBoxWidget(
-                            header: "Hidden Gems in $country",
-                            subtitle: "Find out places in $country that you can't believe exists!",
+                            header: "Working overseas",
+                            subtitle: "Find out more about sal...",
                             fontsize: 16,
+                            path: 'assets/home3.jpg',
                           ),
                         ]),
                       ),
@@ -343,53 +346,79 @@ class _Home extends State<Home> {
                 ),
               ),
 
+              ////////// 2ND GREY SECTION
+              ColoredBox(
+                color: Color(0xFFf0f0f0),
+                child: Column(
+                  children: [
+                    SizedBox(height: 20,),
+                    ReusableTitleWidget(
+                        title: "Useful Links", fontsize: 20, color: Colors.black),
 
-              SizedBox(height: 20),
-              ReusableTitleWidget(
-                  title: "Useful Links", fontsize: 20, color: Colors.black),
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                  child: Row(children: [
-                    InkWell(
-                      onTap: () async {
-                        //await _launchURL('https://www.google.com');
-                        launch("https://www.mindef.gov.sg");
-                        print("pressed");
-                      },
-                      child: ReusableBoxWidget(
-                        header: "MINDEF",
-                        subtitle: "you can never escape",
-                        fontsize: 16,
+                    SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                        child: Row(children: [
+                          ReusableBoxWidget(
+                            header: "Day in the life of...",
+                            subtitle: "Planning to return or mig...",
+                            fontsize: 16,
+                            path: 'assets/home4.jpg',
+                          ),
+                          ReusableBoxWidget(
+                            header: "Jobs in...",
+                            subtitle: "Checklists, visa, acc...",
+                            fontsize: 16,
+                            path: 'assets/home5.jpg',
+                          ),
+                          ReusableBoxWidget(
+                            header: "Best eateries in...",
+                            subtitle: "Find out more about sal...",
+                            fontsize: 16,
+                            path: 'assets/home6.jpg',
+                          ),
+                        ]),
                       ),
                     ),
-                    InkWell(
-                      onTap: () async {
-                        print("pressed");
-                        launch("https://mfa.gov.sg");
-                      },
-                      child: ReusableBoxWidget(
-                        header: "SG Embassy",
-                        subtitle: "Important",
-                        fontsize: 16,
+
+
+                    SizedBox(height: 30,),
+                    ReusableTitleWidget(
+                        title: "My Passport", fontsize: 20, color: Colors.black),
+
+                    SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                        child: Row(children: [
+                          ReusableBoxWidget(
+                            header: "My Passport",
+                            subtitle: "All your travel documents...",
+                            fontsize: 16,
+                            path: 'assets/home7.jpg',
+                          ),
+                          ReusableBoxWidget(
+                            header: "Emergency contacts",
+                            subtitle: "List of important contacts in...",
+                            fontsize: 16,
+                            path: 'assets/home8.jpg',
+                          ),
+                          ReusableBoxWidget(
+                            header: "Embassy updates",
+                            subtitle: "Latest notices and up...",
+                            fontsize: 16,
+                            path: 'assets/home9.jpg',
+                          ),
+                        ]),
                       ),
                     ),
-                    InkWell(
-                      onTap: () async {
-                        print("pressed");
-                        launch("https://www.bbc.com/");
-                      },
-                      child: ReusableBoxWidget(
-                        header: "BBC News",
-                        subtitle: "Find out the latest news in $country",
-                        fontsize: 16,
-                      ),
-                    ),
-                  ]),
+                  ],
                 ),
               ),
+
             ],
           ),
         )

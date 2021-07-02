@@ -26,94 +26,108 @@ class _FriendsPage extends State<FriendsPage> {
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
-                  SizedBox(height: 50),
-                  // Title
-                  ReusableTitleWidget(title: "Events", fontsize: 40, color: Colors.black),
-                  // Tags
-                  Container(
-                      padding: EdgeInsets.all(10),
-                      child: Row(children: [
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              tag = true;
-                            });
-                          },
-                          child: ReusableClickedTagWidget(title: 'Events',),
-                        ),
-                        SizedBox(width: 10), //Spacing between tags
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              tag = false;
-                            });
-                          },
-                          child: ReusableTagWidget(title: "Interest Groups",),
-                        ),
-                      ],)
-                  ),
 
-                  SizedBox(height: 10),
-                  // Search Bar
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black38,
-                          blurRadius: 25,
-                          offset: const Offset(0, 10),
+                  ColoredBox(
+                    color: Color(0xFF164396),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 50),
+                        // Title
+                        ReusableTitleWidget(title: "Events", fontsize: 40, color: Colors.white),
+
+                        Container(
+                            padding: EdgeInsets.all(10),
+                            child: Row(children: [
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    tag = true;
+                                  });
+                                },
+                                child: ReusableClickedTagWidget(title: 'Events',),
+                              ),
+                              SizedBox(width: 10), //Spacing between tags
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    tag = false;
+                                  });
+                                },
+                                child: ReusableTagWidget(title: "Interest Groups",),
+                              ),
+                            ],)
                         ),
+
+                        SizedBox(height: 10),
+
+                        //// Searchbar
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.white),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset: Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child: TextField(
+                              onTap: () {},
+                              readOnly: true,
+                              decoration: InputDecoration(
+                                labelText: "What are you looking for?",
+                                contentPadding: EdgeInsets.fromLTRB(20.0, 7.0, 20.0, 7.0),
+                                prefixIcon: Icon(Icons.search),
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                              )),
+                        ),
+                        SizedBox(height: 20),
                       ],
                     ),
-                    child: TextField(
-                        onTap: () {},
-                        readOnly: true,
-                        decoration: InputDecoration(
-                          labelText: "What are you looking for?",
-                          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                          prefixIcon: Icon(Icons.search),
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          disabledBorder: InputBorder.none,
-                        )),
                   ),
+
+
+                  // Tags
+
+
+
 
                   SizedBox(height: 30),
                   // Sub-Title 1
-                  Row(children: [
-                    ReusableTitleWidget(title: "By The Embassy", fontsize: 20, color: Colors.black,),
-                    SizedBox(width: 20),
-                    Icon(
-                        Icons.keyboard_arrow_right_outlined,
-                        size: 35
-                    ),
-                  ],
-                  ),
+                  ReusableSubTitleWidget(title: "By The Embassy", fontsize: 20, color: Colors.black,),
+
                   SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Container(
                       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                       child: Row(children: [
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "National Day",
                           subtitle: "Come in red and white and...",
                           fontsize: 16,
+                          path: 'assets/event1.jpg'
                         ),
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "Monthly Gathering",
                           subtitle: "New to the community and...",
                           fontsize: 16,
+                            path: 'assets/event2.jpg'
                         ),
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "Expats Expedition",
-                          subtitle: "Networking with fellow Singaporeans...",
+                          subtitle: "Networking with fellow Si...",
                           fontsize: 16,
+                          path: 'assets/event3.jpg'
                         ),
                       ]),
                     ),
@@ -121,35 +135,31 @@ class _FriendsPage extends State<FriendsPage> {
 
                   SizedBox(height: 30),
                   // Sub-Title 2
-                  Row(children: [
-                    ReusableTitleWidget(title: "Online From SG", fontsize: 20, color: Colors.black,),
-                    SizedBox(width: 20),
-                    Icon(
-                        Icons.keyboard_arrow_right_outlined,
-                        size: 35
-                    ),
-                  ],
-                  ),
+                  ReusableSubTitleWidget(title: "Online From SG", fontsize: 20, color: Colors.black,),
+
                   SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Container(
                       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                       child: Row(children: [
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "National Day",
                           subtitle: "Come in red and white and...",
                           fontsize: 16,
+                          path: 'assets/event4.jpg'
                         ),
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "Cook Together",
-                          subtitle: "Come together and cook some of Singapore's famous...",
+                          subtitle: "Come together and cook...",
                           fontsize: 16,
+                            path: 'assets/event5.jpg'
                         ),
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "Netflix Watch Party",
-                          subtitle: "Tired and looking for a break? Come join...",
+                          subtitle: "Tired and looking for...",
                           fontsize: 16,
+                            path: 'assets/home2.jpg'
                         ),
                       ]),
                     ),
@@ -157,30 +167,25 @@ class _FriendsPage extends State<FriendsPage> {
 
                   SizedBox(height: 30),
                   // Sub-Title 3
-                  Row(children: [
-                    ReusableTitleWidget(title: "Networking", fontsize: 20, color: Colors.black,),
-                    SizedBox(width: 20),
-                    Icon(
-                        Icons.keyboard_arrow_right_outlined,
-                        size: 35
-                    ),
-                  ],
-                  ),
+                    ReusableSubTitleWidget(title: "Networking", fontsize: 20, color: Colors.black,),
+
                   SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Container(
                       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                       child: Row(children: [
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "Upcoming Entrepreneurs",
-                          subtitle: "Get to know other aspiring entrepreneurs...",
+                          subtitle: "Get to know other asp...",
                           fontsize: 16,
+                          path: 'assets/home5.jpg',
                         ),
-                        ReusableBoxWidget(
+                        ReusableSmallBoxWidget(
                           header: "Casual Dining",
-                          subtitle: "Just want to get to know other people? Come...",
+                          subtitle: "Just want to get...",
                           fontsize: 16,
+                          path: 'assets/home6.jpg',
                         ),
                       ]),
                     ),
@@ -306,20 +311,13 @@ class _FriendsPage extends State<FriendsPage> {
 
                     SizedBox(height: 30),
                     // Sub-Title 1
-                    Row(children: [
-                      ReusableTitleWidget(title: "My Groups", fontsize: 20, color: Colors.black,),
-                      SizedBox(width: 20),
-                      Icon(
-                          Icons.keyboard_arrow_right_outlined,
-                          size: 35
-                      ),
+                      ReusableSubTitleWidget(title: "Your Groups", fontsize: 20, color: Colors.black,),
                       SizedBox(width: 160),
                       Icon(
                         Icons.add_box,
                         size: 35
-                      )
-                    ],
-                    ),
+                      ),
+
                     SingleChildScrollView(
                       physics: BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
@@ -333,10 +331,11 @@ class _FriendsPage extends State<FriendsPage> {
                                       builder: (context) => InterestPage())
                               );
                             },
-                            child: ReusableBoxWidget(
+                            child: ReusableSmallBoxWidget(
                               header: "Pottery Lovers",
                               subtitle: "",
                               fontsize: 16,
+                              path: 'assets/ig1.jpg',
                             ),
                           ),
                           InkWell(
@@ -346,10 +345,11 @@ class _FriendsPage extends State<FriendsPage> {
                                       builder: (context) => InterestPage())
                               );
                             },
-                            child: ReusableBoxWidget(
+                            child: ReusableSmallBoxWidget(
                               header: "Daily Jogs",
                               subtitle: "",
                               fontsize: 16,
+                              path: 'assets/ig2.jpg',
                             ),
                           ),
                           InkWell(
@@ -359,10 +359,11 @@ class _FriendsPage extends State<FriendsPage> {
                                       builder: (context) => InterestPage())
                               );
                             },
-                            child: ReusableBoxWidget(
+                            child: ReusableSmallBoxWidget(
                               header: "Singapore Coders",
                               subtitle: "",
                               fontsize: 16,
+                              path: 'assets/ig3.jpg',
                             ),
                           ),
                         ]),
@@ -371,7 +372,7 @@ class _FriendsPage extends State<FriendsPage> {
 
                     SizedBox(height: 10),
                     // Sub-Title 2
-                    ReusableTitleWidget(title: "You Might Be Interested In", fontsize: 20, color: Colors.black,),
+                    ReusableSubTitleWidget(title: "You Might Be Interested In", fontsize: 20, color: Colors.black,),
                     Row(children: [
                       InkWell(
                         onTap: () {
@@ -380,10 +381,11 @@ class _FriendsPage extends State<FriendsPage> {
                                   builder: (context) => InterestPage())
                           );
                         },
-                        child: ReusableBigBoxWidget(
+                        child: ReusableMediumBoxWidget(
                           header: "Golfing",
                           subtitle: "Break a sweat...",
                           fontsize: 16,
+                          path: 'assets/home7.jpg',
                         ),
                       ),
                       InkWell(
@@ -393,10 +395,11 @@ class _FriendsPage extends State<FriendsPage> {
                                   builder: (context) => InterestPage())
                           );
                         },
-                        child: ReusableBigBoxWidget(
+                        child: ReusableMediumBoxWidget(
                           header: "Fishing Funs",
                           subtitle: "Catch a big one...",
                           fontsize: 16,
+                          path: 'assets/home8.jpg',
                         ),
                       ),
                     ]),
@@ -409,10 +412,11 @@ class _FriendsPage extends State<FriendsPage> {
                                   builder: (context) => InterestPage())
                           );
                         },
-                        child: ReusableBigBoxWidget(
+                        child: ReusableMediumBoxWidget(
                           header: "Casino Trips",
                           subtitle: "Try your luck...",
                           fontsize: 16,
+                          path: 'assets/home9.jpg',
                         ),
                       ),
                       InkWell(
@@ -422,10 +426,11 @@ class _FriendsPage extends State<FriendsPage> {
                                   builder: (context) => InterestPage())
                           );
                         },
-                        child: ReusableBigBoxWidget(
+                        child: ReusableMediumBoxWidget(
                           header: "Italian Cooking",
-                          subtitle: "Cook your own carbonara today...",
+                          subtitle: "Cook your own ca...",
                           fontsize: 16,
+                          path: 'assets/home2.jpg',
                         ),
                       ),
                     ]),
