@@ -21,6 +21,38 @@ class ReusableTitleWidget extends StatelessWidget {
   }
 }
 
+class ReusableSubTitleWidget extends StatelessWidget {
+  final title;
+  final color;
+  final double fontsize;
+  ReusableSubTitleWidget({this.title, this.color, this.fontsize});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 20),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              '$title',
+              style: GoogleFonts.montserrat(
+                  fontSize: fontsize, fontWeight: FontWeight.w800, color: color),
+            ),
+          ),
+
+          SizedBox(width: 20,),
+
+          Icon(
+              Icons.keyboard_arrow_right_outlined,
+              size: 35
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class ReusableTagWidget extends StatelessWidget {
   final title;
   //final icon;
@@ -34,20 +66,14 @@ class ReusableTagWidget extends StatelessWidget {
       //margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.all(Radius.circular(40)),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black38,
-            blurRadius: 5,
-            offset: const Offset(0, 5),
-          ),
-        ],
+        color: Color(0xFF164396),
       ),
       child: Text(
         '$title',
         style: GoogleFonts.montserrat(
-            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.black),
+            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.white),
       ),
     );
   }
@@ -66,20 +92,14 @@ class ReusableClickedTagWidget extends StatelessWidget {
       //margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.all(Radius.circular(40)),
-        color: Colors.grey,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black38,
-            blurRadius: 5,
-            offset: const Offset(0, 5),
-          ),
-        ],
+        color: Colors.white,
       ),
       child: Text(
         '$title',
         style: GoogleFonts.montserrat(
-            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.black),
+            fontSize: 15, fontWeight: FontWeight.w800, color: Color(0xFF164396)),
       ),
     );
   }
@@ -139,50 +159,69 @@ class ReusableBoxWidget extends StatelessWidget {
   final header;
   final subtitle;
   final double fontsize;
-  const ReusableBoxWidget({this.header, this.subtitle, this.fontsize});
+  final String path;
+  const ReusableBoxWidget({this.header, this.subtitle, this.fontsize, this.path});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height * 0.2,
-        width: MediaQuery.of(context).size.width * 0.4,
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black38,
-              blurRadius: 5,
-              offset: const Offset(0, 5),
-            ),
-          ],
-        ),
-        padding: EdgeInsets.all(8),
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                header,
-                style: GoogleFonts.montserrat(
-                    fontSize: fontsize,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black),
+      child: Column(
+        children: [
+          Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              width: MediaQuery.of(context).size.width * 0.5,
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    path
+                  ),
+                  fit: BoxFit.fill,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black38,
+                    blurRadius: 5,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
               ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                subtitle,
-                style: GoogleFonts.montserrat(
-                    fontSize: fontsize - 2,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey[500]),
-              ),
-            )
-          ],
-        ));
+              padding: EdgeInsets.all(8),
+          ),
+
+          SizedBox(height: 10,),
+          Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    // alignment: Alignment.bottomLeft,
+                    child: Text(
+                      header,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Align(
+                    // alignment: Alignment.bottomLeft,
+                    child: Text(
+                      subtitle,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize - 2,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[500]),
+                    ),
+                  )
+                ],
+              )
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -263,53 +302,138 @@ class ReusablePopupFriendsWidget extends StatelessWidget {
   }
 }
 
-class ReusableBigBoxWidget extends StatelessWidget {
+class ReusableSmallBoxWidget extends StatelessWidget {
    final header;
    final subtitle;
    final double fontsize;
-   const ReusableBigBoxWidget({this.header, this.subtitle, this.fontsize});
+   final String path;
+   const ReusableSmallBoxWidget({this.header, this.subtitle, this.fontsize, this.path});
 
    @override
    Widget build(BuildContext context) {
      return Container(
-         height: 175,
-         width: 175,
-         margin: EdgeInsets.symmetric(horizontal: 10),
-         decoration: BoxDecoration(
-           borderRadius: BorderRadius.all(Radius.circular(20)),
-           color: Colors.white,
-           boxShadow: [
-             BoxShadow(
-               color: Colors.black38,
-               blurRadius: 5,
-               offset: const Offset(0, 5),
-             ),
-           ],
-         ),
-         padding: EdgeInsets.all(8),
-         child: Column(
-           children: [
-             Align(
-               alignment: Alignment.centerLeft,
-               child: Text(
-                 header,
-                 style: GoogleFonts.montserrat(
-                     fontSize: fontsize,
-                     fontWeight: FontWeight.w700,
-                     color: Colors.black),
+       child: Column(
+         children: [
+           Container(
+               height: 175,
+               width: 150,
+               margin: EdgeInsets.symmetric(horizontal: 10),
+             decoration: BoxDecoration(
+               image: DecorationImage(
+                 image: AssetImage(
+                     path
+                 ),
+                 fit: BoxFit.fill,
                ),
+               borderRadius: BorderRadius.all(Radius.circular(20)),
+               color: Colors.white,
+               boxShadow: [
+                 BoxShadow(
+                   color: Colors.black38,
+                   blurRadius: 5,
+                   offset: const Offset(0, 5),
+                 ),
+               ],
              ),
-             Align(
-               alignment: Alignment.centerLeft,
-               child: Text(
-                 subtitle,
-                 style: GoogleFonts.montserrat(
-                     fontSize: fontsize - 2,
-                     fontWeight: FontWeight.w500,
-                     color: Colors.grey[500]),
-               ),
-             )
-           ],
-         ));
+               padding: EdgeInsets.all(8),
+           ),
+
+           Container(
+               child: Column(
+                 children: [
+                   Align(
+                     alignment: Alignment.centerLeft,
+                     child: Text(
+                       header,
+                       style: GoogleFonts.montserrat(
+                           fontSize: fontsize,
+                           fontWeight: FontWeight.w700,
+                           color: Colors.black),
+                     ),
+                   ),
+                   Align(
+                     alignment: Alignment.centerLeft,
+                     child: Text(
+                       subtitle,
+                       style: GoogleFonts.montserrat(
+                           fontSize: fontsize - 2,
+                           fontWeight: FontWeight.w500,
+                           color: Colors.grey[500]),
+                     ),
+                   )
+                 ],
+               )
+           )
+         ],
+       ),
+     );
    }
  }
+
+class ReusableMediumBoxWidget extends StatelessWidget {
+  final header;
+  final subtitle;
+  final double fontsize;
+  final String path;
+  const ReusableMediumBoxWidget({this.header, this.subtitle, this.fontsize, this.path});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+            height: 175,
+            width: 175,
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    path
+                ),
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black38,
+                  blurRadius: 5,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(8),
+          ),
+
+          Container(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      header,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      subtitle,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize - 2,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[500]),
+                    ),
+                  )
+                ],
+              )
+          )
+        ],
+      ),
+    );
+  }
+}
