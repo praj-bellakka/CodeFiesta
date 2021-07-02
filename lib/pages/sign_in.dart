@@ -1,3 +1,4 @@
+import 'package:codefiesta_app/pages/onbarding_pages.dart';
 import 'package:codefiesta_app/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -194,7 +195,7 @@ class _SignInState extends State<SignIn> {
                             onPressed: () {
                               Navigator.push(
                               context,
-                                MaterialPageRoute(builder: (context) => Register()),
+                                MaterialPageRoute(builder: (context) => OnBoardingPage()),
                               );
                             },
                             child: RichText(
