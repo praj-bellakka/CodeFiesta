@@ -11,7 +11,6 @@ class ExplanationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(data.boldText);
     return Column(
       children: [
         Container(
@@ -23,15 +22,18 @@ class ExplanationPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              Container(
+              padding: EdgeInsets.symmetric(horizontal: 48),
+              child: Text(
                 data.boldText,
                 style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.bold,
                   fontSize: 15.0,
                   color: Colors.black
                 ),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.justify,
               ),
+              )
             ],
           ),
         ),
@@ -49,7 +51,7 @@ class ExplanationPage extends StatelessWidget {
                     fontSize: 15.0,
                     color: Colors.black
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.justify,
                 ),
               ),
 

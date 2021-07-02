@@ -1,4 +1,5 @@
 import 'package:codefiesta_app/pages/navBar.dart';
+import 'package:codefiesta_app/pages/onboarding_page_name.dart';
 import 'package:codefiesta_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,6 @@ class _RegisterState extends State<Register> {
   String email = '';
   String password = '';
   String error = '';
-
   final _passwordText = TextEditingController();
   final _passwordConfirmText = TextEditingController();
 
@@ -155,6 +155,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 SizedBox(height: 20.0),
+                SizedBox(height: 20.0),
                 Container(
                     margin: EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width * 0.6,
@@ -172,7 +173,7 @@ class _RegisterState extends State<Register> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => NavPage()));
+                                    builder: (context) => SetUpNamePage()));
                           }
                         }
                       },

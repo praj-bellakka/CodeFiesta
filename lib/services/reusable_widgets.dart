@@ -134,6 +134,57 @@ class ReusableLightTagWidget extends StatelessWidget {
     );
   }
 }
+
+class ReusableColouredTagWidget extends StatelessWidget {
+  final title;
+  final color;
+  //final icon;
+  ReusableColouredTagWidget({this.title, this.color});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      constraints: BoxConstraints(minWidth: 0, maxWidth: MediaQuery.of(context).size.width * 0.85),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        color: color,
+      ),
+      child: Text(
+        '$title',
+        style: GoogleFonts.montserrat(
+            fontSize: 13, fontWeight: FontWeight.w500, color: Colors.white),
+      ),
+    );
+  }
+}
+
+class ReusableColouredInvertedTagWidget extends StatelessWidget {
+  final title;
+  final borderColour;
+  //final icon;
+  ReusableColouredInvertedTagWidget({this.title, this.borderColour});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      constraints: BoxConstraints(minWidth: 0, maxWidth: MediaQuery.of(context).size.width * 0.85),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        border: Border.all(color: borderColour),
+        color: Colors.transparent
+      ),
+      child: Text(
+        '$title',
+        style: GoogleFonts.montserrat(
+            fontSize: 13, fontWeight: FontWeight.w500, color: borderColour),
+      ),
+    );
+  }
+}
+
+
 //creates small box with a header
 class ReusableBoxWidget extends StatelessWidget {
   final header;
@@ -264,52 +315,93 @@ class ReusablePopupFriendsWidget extends StatelessWidget {
 }
 
 class ReusableBigBoxWidget extends StatelessWidget {
-   final header;
-   final subtitle;
-   final double fontsize;
-   const ReusableBigBoxWidget({this.header, this.subtitle, this.fontsize});
+  final header;
+  final subtitle;
+  final double fontsize;
+  const ReusableBigBoxWidget({this.header, this.subtitle, this.fontsize});
 
-   @override
-   Widget build(BuildContext context) {
-     return Container(
-         height: 175,
-         width: 175,
-         margin: EdgeInsets.symmetric(horizontal: 10),
-         decoration: BoxDecoration(
-           borderRadius: BorderRadius.all(Radius.circular(20)),
-           color: Colors.white,
-           boxShadow: [
-             BoxShadow(
-               color: Colors.black38,
-               blurRadius: 5,
-               offset: const Offset(0, 5),
-             ),
-           ],
-         ),
-         padding: EdgeInsets.all(8),
-         child: Column(
-           children: [
-             Align(
-               alignment: Alignment.centerLeft,
-               child: Text(
-                 header,
-                 style: GoogleFonts.montserrat(
-                     fontSize: fontsize,
-                     fontWeight: FontWeight.w700,
-                     color: Colors.black),
-               ),
-             ),
-             Align(
-               alignment: Alignment.centerLeft,
-               child: Text(
-                 subtitle,
-                 style: GoogleFonts.montserrat(
-                     fontSize: fontsize - 2,
-                     fontWeight: FontWeight.w500,
-                     color: Colors.grey[500]),
-               ),
-             )
-           ],
-         ));
-   }
- }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 175,
+        width: 175,
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 5,
+              offset: const Offset(0, 5),
+            ),
+          ],
+        ),
+        padding: EdgeInsets.all(8),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                header,
+                style: GoogleFonts.montserrat(
+                    fontSize: fontsize,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                subtitle,
+                style: GoogleFonts.montserrat(
+                    fontSize: fontsize - 2,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[500]),
+              ),
+            )
+          ],
+        ));
+  }
+}
+
+class ReusableDescriptionWidget extends StatelessWidget {
+  final description;
+  ReusableDescriptionWidget({this.description});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 20),
+      alignment: Alignment.centerLeft,
+      child: Text(
+        '$description',
+        style: GoogleFonts.montserrat(
+            fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.black),
+      ),
+    );
+  }
+}
+
+class ReusableBigButtonWidget extends StatelessWidget {
+  final title;
+  final color;
+  const ReusableBigButtonWidget({this.title, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.all(5),
+        alignment: Alignment.center,
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: 60,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(13),
+        ),
+        child: Text(title,
+            style: GoogleFonts.montserrat(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 18)));
+  }
+}
