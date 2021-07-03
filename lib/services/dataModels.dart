@@ -49,12 +49,13 @@ class UserDetails {
       };
 }
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
-final userId = _auth.currentUser.uid;
-final dataBaseReference =
-    FirebaseDatabase.instance.reference().child("user/$userId/");
+// final FirebaseAuth _auth = FirebaseAuth.instance;
+// final userId = _auth.currentUser.uid;
 
 Future<dynamic> loadUserProfile() async {
+  final userId = FirebaseAuth.instance.currentUser.uid;
+  final dataBaseReference =
+      FirebaseDatabase.instance.reference().child("user/$userId/");
   return await dataBaseReference.once().then((result) {
     localUserProfile = result.value;
     return result.value;
