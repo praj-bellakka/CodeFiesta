@@ -14,6 +14,8 @@ class ProfilePage extends StatefulWidget {
   _ProfilePage createState() => _ProfilePage();
 }
 
+int numtags = localUserProfile['Profile']['Tags chosen'].length;
+
 class _ProfilePage extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
@@ -72,12 +74,12 @@ class _ProfilePage extends State<ProfilePage> {
                         Row(
                           children: [
                             ReusableColouredTagWidget(
-                              title: "Student",
+                              title: localUserProfile['Profile']['Usage Type'],
                               color: Color(0xFFb969d5),
                             ),
                             SizedBox(width: 5),
                             ReusableColouredTagWidget(
-                              title: "Living Alone",
+                              title: localUserProfile['Profile']['Type of stay'],
                               color: Color(0xFFb969d5),
                             ),
                           ],
@@ -87,15 +89,10 @@ class _ProfilePage extends State<ProfilePage> {
                         ),
                         Row(
                           children: [
-                            ReusableColouredTagWidget(
-                              title: "Sports",
-                              color: Color(0xFF8e1ab5),
-                            ),
+                            numtags > 0 ? ReusableColouredTagWidget(title: localUserProfile['Profile']['Tags chosen'][0], color: Color(0xFF8e1ab5),) : ReusableColouredTagWidget(title: '', color: Color(0xFF58136e),),
+
                             SizedBox(width: 5),
-                            ReusableColouredTagWidget(
-                              title: "Photography",
-                              color: Color(0xFF8e1ab5),
-                            ),
+                            numtags > 1 ? ReusableColouredTagWidget(title: localUserProfile['Profile']['Tags chosen'][1], color: Color(0xFF8e1ab5),) : ReusableColouredTagWidget(title: '', color: Color(0xFF58136e),),
                           ],
                         ),
                         SizedBox(
@@ -103,20 +100,10 @@ class _ProfilePage extends State<ProfilePage> {
                         ),
                         Row(
                           children: [
-                            ReusableColouredTagWidget(
-                              title: "Art",
-                              color: Color(0xFF8e1ab5),
-                            ),
+                            numtags > 2 ? ReusableColouredTagWidget(title: localUserProfile['Profile']['Tags chosen'][2], color: Color(0xFF8e1ab5),) : ReusableColouredTagWidget(title: '', color: Color(0xFF58136e),),
                             SizedBox(width: 5),
-                            ReusableColouredTagWidget(
-                              title: "Reading",
-                              color: Color(0xFF8e1ab5),
-                            ),
+                            numtags > 3 ? ReusableColouredTagWidget(title: localUserProfile['Profile']['Tags chosen'][3], color: Color(0xFF8e1ab5),) : ReusableColouredTagWidget(title: '', color: Color(0xFF58136e),),
                             SizedBox(width: 5),
-                            ReusableColouredTagWidget(
-                              title: "Cook",
-                              color: Color(0xFF8e1ab5),
-                            ),
                           ],
                         ),
                       ],

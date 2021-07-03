@@ -24,8 +24,8 @@ class _Home extends State<Home> {
   ];
   static final List<String> occupation = [
     'I am...',
-    'New',
-    'Old'
+    'Studying',
+    'Working'
   ];
   String country = items.first;
   String stat = occupation.first;

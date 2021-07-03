@@ -45,8 +45,6 @@ class _TopicsPage extends State<TopicsPage> {
 
                       InkWell(
                         onTap: () {
-
-                          print(localUserProfile["uid"]);
                           Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (context) => NewThreadPage())
