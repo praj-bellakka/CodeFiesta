@@ -401,7 +401,7 @@ class _Home extends State<Home> {
                             onTap: () async {
                               //load list of biometrics supported by device for passport feature
                               final isAuthenticated = await LocalAuthApi.authenticate();
-                              if (!isAuthenticated) {
+                              if (isAuthenticated) {
                                 print('Authenticate');
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(builder: (context) => MyPassportPage()),
