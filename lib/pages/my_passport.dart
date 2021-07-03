@@ -18,7 +18,7 @@ class _MyPassportPage extends State<MyPassportPage> {
     print(listItemsPassport.length);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xFFCB3720),
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
@@ -33,7 +33,7 @@ class _MyPassportPage extends State<MyPassportPage> {
       body: Column(
       children: [
         ColoredBox(
-          color: Colors.red,
+          color: Color(0xFFCB3720),
           child: Column(
             children: [
               ReusableTitleWidget(title: "My Passport", fontsize: 40, color: Colors.white),
