@@ -1,6 +1,7 @@
 import 'package:codefiesta_app/pages/friends_page.dart';
 import 'package:codefiesta_app/pages/navBar.dart';
 import 'package:codefiesta_app/pages/places_page.dart';
+import 'package:codefiesta_app/services/dataModels.dart';
 import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,92 +23,130 @@ class _ProfilePage extends State<ProfilePage> {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          ////////// PROFILE DETAILS
-          SizedBox(height: 50),
-          Row(
-            children: [
-              ReusableTitleWidget(
-                  title: "John Smith", fontsize: 30, color: Colors.black),
-              SizedBox(width: 10),
-              Text(
-                "New York, NY",
-                style: TextStyle(fontSize: 12),
-              ),
-              SizedBox(width: 50),
-              Icon(Icons.edit, size: 35),
-            ],
-          ),
-          Row(
-            children: [
-              SizedBox(width: 10),
-              Icon(Icons.account_circle, size: 130),
-              Column(
-                children: [
-                  Container(
-                    constraints: BoxConstraints(minWidth: 100, maxWidth: 200),
-                    child: Text(
-                        "I am John Smith and I love CodeFiesta! My other hobbies are drawing and cooking!"),
-                  ),
-                  SizedBox(height: 5),
-                  Row(
-                    children: [
-                      ReusableLightTagWidget(
-                        title: "Student",
+          ColoredBox(
+            color: Color(0xFF58136e),
+            child: Column(
+              children: [
+                ////////// PROFILE DETAILS
+                SizedBox(height: 50),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 150,
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text("   " + localUserProfile["firstName"] + " " +  localUserProfile["lastName"], style: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.w800, color: Colors.white),),
                       ),
-                      SizedBox(width: 5),
-                      ReusableLightTagWidget(
-                        title: "Living Alone",
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      ReusableDarkTagWidget(
-                        title: "Sports",
-                      ),
-                      SizedBox(width: 5),
-                      ReusableDarkTagWidget(
-                        title: "Photography",
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      ReusableDarkTagWidget(
-                        title: "Art",
-                      ),
-                      SizedBox(width: 5),
-                      ReusableDarkTagWidget(
-                        title: "Reading",
-                      ),
-                      SizedBox(width: 5),
-                      ReusableDarkTagWidget(
-                        title: "Cook",
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            ],
+                    ),
+
+                    SizedBox(width: 10),
+                    Text(
+                      "New York, NY",
+                      style: TextStyle(fontSize: 12, color: Colors.white),
+                    ),
+                    SizedBox(width: 50),
+                    Icon(Icons.edit, size: 35, color: Colors.white,),
+                  ],
+                ),
+
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 10),
+                    CircleAvatar(backgroundImage:
+                    AssetImage(
+                        'assets/therock.jpg'
+                    ),
+                      radius: 50,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          constraints: BoxConstraints(minWidth: 100, maxWidth: 200),
+                          child: Text(
+                              "I am " + localUserProfile["firstName"] + " " +  localUserProfile["lastName"] + " and I love CodeFiesta! My other hobbies are drawing and cooking!", style: TextStyle(fontSize: 12, color: Colors.white)),
+                        ),
+                        SizedBox(height: 5),
+                        Row(
+                          children: [
+                            ReusableColouredTagWidget(
+                              title: "Student",
+                              color: Color(0xFFb969d5),
+                            ),
+                            SizedBox(width: 5),
+                            ReusableColouredTagWidget(
+                              title: "Living Alone",
+                              color: Color(0xFFb969d5),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            ReusableColouredTagWidget(
+                              title: "Sports",
+                              color: Color(0xFF8e1ab5),
+                            ),
+                            SizedBox(width: 5),
+                            ReusableColouredTagWidget(
+                              title: "Photography",
+                              color: Color(0xFF8e1ab5),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            ReusableColouredTagWidget(
+                              title: "Art",
+                              color: Color(0xFF8e1ab5),
+                            ),
+                            SizedBox(width: 5),
+                            ReusableColouredTagWidget(
+                              title: "Reading",
+                              color: Color(0xFF8e1ab5),
+                            ),
+                            SizedBox(width: 5),
+                            ReusableColouredTagWidget(
+                              title: "Cook",
+                              color: Color(0xFF8e1ab5),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+
+                SizedBox(height: 10),
+
+              ],
+            ),
           ),
 
-          SizedBox(height: 10),
+
+
           ////////// COMMENTS
           // Comment 1
           Container(
             decoration: BoxDecoration(
-                color: Colors.black12,
+                color: Colors.white,
                 border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                Icon(Icons.account_circle, size: 50),
+                CircleAvatar(backgroundImage:
+                AssetImage(
+                    'assets/therock.jpg'
+                ),
+                  radius: 25,
+                ),
                 SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +154,7 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text("Sarah Smith"),
+                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("3 hr ago")
                       ],
@@ -124,7 +163,7 @@ class _ProfilePage extends State<ProfilePage> {
                     Container(
                       constraints: BoxConstraints(minWidth: 100, maxWidth: 300),
                       child: Text(
-                          "Hey John! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
+                          "Hey dudette! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
                     ),
                     Row(
                       children: [
@@ -142,12 +181,17 @@ class _ProfilePage extends State<ProfilePage> {
           //Comment 2
           Container(
             decoration: BoxDecoration(
-                color: Colors.black12,
+                color: Colors.white,
                 border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                Icon(Icons.account_circle, size: 50),
+                CircleAvatar(backgroundImage:
+                AssetImage(
+                    'assets/therock.jpg'
+                ),
+                  radius: 25,
+                ),
                 SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,7 +199,7 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text("Dave Smith"),
+                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("4 hr ago")
                       ],
@@ -164,7 +208,7 @@ class _ProfilePage extends State<ProfilePage> {
                     Container(
                       constraints: BoxConstraints(minWidth: 100, maxWidth: 300),
                       child: Text(
-                          "Hey John! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
+                          "Hey dudette! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
                     ),
                     Row(
                       children: [
@@ -182,12 +226,17 @@ class _ProfilePage extends State<ProfilePage> {
           // Comment 3
           Container(
             decoration: BoxDecoration(
-                color: Colors.black12,
+                color: Colors.white,
                 border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                Icon(Icons.account_circle, size: 50),
+                CircleAvatar(backgroundImage:
+                AssetImage(
+                    'assets/therock.jpg'
+                ),
+                  radius: 25,
+                ),
                 SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +244,7 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text("Sean Smith"),
+                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("6 hr ago")
                       ],
@@ -204,7 +253,7 @@ class _ProfilePage extends State<ProfilePage> {
                     Container(
                       constraints: BoxConstraints(minWidth: 100, maxWidth: 300),
                       child: Text(
-                          "Hey John! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
+                          "Hey dude! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
                     ),
                     Row(
                       children: [
@@ -222,12 +271,17 @@ class _ProfilePage extends State<ProfilePage> {
           // Comment 4
           Container(
             decoration: BoxDecoration(
-                color: Colors.black12,
+                color: Colors.white,
                 border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                Icon(Icons.account_circle, size: 50),
+                CircleAvatar(backgroundImage:
+                AssetImage(
+                    'assets/therock.jpg'
+                ),
+                  radius: 25,
+                ),
                 SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -235,7 +289,7 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text("Ash Smith"),
+                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("13 hr ago")
                       ],
@@ -244,7 +298,7 @@ class _ProfilePage extends State<ProfilePage> {
                     Container(
                       constraints: BoxConstraints(minWidth: 100, maxWidth: 300),
                       child: Text(
-                          "Hey John! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
+                          "Hey dude! Just want to say I had a blast with you that day! Looking forward to seeing you again!"),
                     ),
                     Row(
                       children: [

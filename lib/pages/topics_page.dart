@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:codefiesta_app/pages/newthread_page.dart';
+import 'package:codefiesta_app/services/dataModels.dart';
 import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,8 +37,27 @@ class _TopicsPage extends State<TopicsPage> {
               color: Color(0xFFef9f40),
               child: Column(
                 children: [
-                  ReusableTitleWidget(
-                      title: widget.pageName, fontsize: 40, color: Colors.white),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ReusableTitleWidget(
+                          title: widget.pageName, fontsize: 40, color: Colors.white),
+
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => NewThreadPage())
+                          );
+                        },
+                        child: Text(
+                          '+ New Thread     ',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+
                   SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -115,6 +136,7 @@ class _TopicsPage extends State<TopicsPage> {
                       ),
                       
                       child: ListTile(
+                        trailing: Icon(Icons.favorite),
                         leading: ConstrainedBox(
                           constraints: BoxConstraints(
                             minWidth: 40,

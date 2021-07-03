@@ -120,13 +120,13 @@ class ReusableDarkTagWidget extends StatelessWidget {
       //margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-        color: Colors.grey,
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Colors.black,
       ),
       child: Text(
         '$title',
         style: GoogleFonts.montserrat(
-            fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black),
+            fontSize: 13, fontWeight: FontWeight.w800, color: Colors.white),
       ),
     );
   }

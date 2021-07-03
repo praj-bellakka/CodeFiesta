@@ -56,6 +56,7 @@ final dataBaseReference =
 
 Future<dynamic> loadUserProfile() async {
   return await dataBaseReference.once().then((result) {
+    localUserProfile = result.value;
     return result.value;
   });
 }

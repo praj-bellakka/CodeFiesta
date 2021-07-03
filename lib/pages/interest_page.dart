@@ -20,40 +20,68 @@ class _InterestPage extends State<InterestPage> {
             Navigator.of(context).pop();
           },
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xFF164396),
         elevation: 0,
       ),
 
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("      Joined on 27 Jun 2021"),
-            ReusableTitleWidget(title: "Lorem ipsum sit amet", color: Colors.black, fontsize: 25,),
-            Text("      Created by John Smith"),
-            Container(
-              margin: EdgeInsets.only(left: 20, top: 10, right: 20),
-              child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in enim consequat, condimentum massa id, convallis sapien. Fusce mauris orci, gravida eu aliquet sed, semper nec lacus. Lorem ipsum dolor sit amet,"),
+
+            ColoredBox(
+              color: Color(0xFF164396),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("      Joined on 27 Jun 2021", style: TextStyle(color: Colors.white),),
+                  ReusableTitleWidget(title: "Lorem ipsum sit amet", color: Colors.white, fontsize: 25,),
+                  Text("      Created by John Smith", style: TextStyle(color: Colors.white),),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, top: 10, right: 20),
+                    child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in enim consequat, condimentum massa id, convallis sapien. Fusce mauris orci, gravida eu aliquet sed, semper nec lacus. Lorem ipsum dolor sit amet,", style: TextStyle(color: Colors.white),),
+                  ),
+
+                  SizedBox(height: 10),
+
+                  Row(
+                    children: [
+                      SizedBox(width: 20),
+                      CircleAvatar(backgroundImage:
+                      AssetImage(
+                          'assets/therock.jpg'
+                      ),
+                        radius: 23,
+                      ),
+
+                      SizedBox(width: 10,),
+
+                      Text('+ 63 others', style: TextStyle(color: Colors.white),),
+
+                      SizedBox(width: 80,),
+
+
+                      ReusableDarkTagWidget(title: "View Members",)
+                    ],),
+
+                  SizedBox(height: 20),
+                ],
+              ),
             ),
 
-            SizedBox(height: 10),
 
-            Row(
-              children: [
-                SizedBox(width: 15),
-                Icon(Icons.account_circle, size: 50,),
-                Text("  + 63 others"),
-                SizedBox(width: 60),
-                ReusableTagWidget(title: "View Members",)
-              ],),
+
 
             // Meetup 1
             Container(
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                  color: Colors.black12,
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/ig2.jpg'
+                    ), fit: BoxFit.fill,
+                  ),
                   borderRadius: BorderRadius.circular(10)
               ),
               child: Column(
@@ -62,17 +90,17 @@ class _InterestPage extends State<InterestPage> {
                   SizedBox(height: 5),
                   Row(
                     children: [
-                      ReusableTitleWidget(title: "Next Meetup", color: Colors.black, fontsize: 25),
+                      ReusableTitleWidget(title: "Next Meetup", color: Colors.white, fontsize: 25),
                       SizedBox(width: 70),
-                      Text("30 July 2021")
+                      Text("30 July 2021", style: TextStyle(color: Colors.white),)
                     ],
                   ),
                   SizedBox(height: 100),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Icon(Icons.account_circle, size: 50,),
-                      Text("+ 2 Others ")
+                      Icon(Icons.account_circle, size: 50, color: Colors.white,),
+                      Text("+ 2 Others ", style: TextStyle(color: Colors.white),)
                     ],
                   )
                 ],
@@ -83,7 +111,11 @@ class _InterestPage extends State<InterestPage> {
             Container(
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                  color: Colors.black12,
+                  image: DecorationImage(
+                    image: AssetImage(
+                        'assets/ig1.jpg'
+                    ), fit: BoxFit.fill,
+                  ),
                   borderRadius: BorderRadius.circular(10)
               ),
               child: Column(
@@ -92,17 +124,17 @@ class _InterestPage extends State<InterestPage> {
                   SizedBox(height: 5),
                   Row(
                     children: [
-                      ReusableTitleWidget(title: "Next Meetup", color: Colors.black, fontsize: 25),
+                      ReusableTitleWidget(title: "Next Meetup", color: Colors.white, fontsize: 25),
                       SizedBox(width: 70),
-                      Text("3 Aug 2021")
+                      Text("3 Aug 2021", style: TextStyle(color: Colors.white),)
                     ],
                   ),
                   SizedBox(height: 100),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Icon(Icons.account_circle, size: 50,),
-                      Text("+ 5 Others ")
+                      Icon(Icons.account_circle, size: 50, color: Colors.white,),
+                      Text("+ 5 Others ", style: TextStyle(color: Colors.white),)
                     ],
                   )
                 ],
@@ -113,7 +145,11 @@ class _InterestPage extends State<InterestPage> {
             Container(
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                  color: Colors.black12,
+                  image: DecorationImage(
+                    image: AssetImage(
+                        'assets/ig3.jpg'
+                    ), fit: BoxFit.fill,
+                  ),
                   borderRadius: BorderRadius.circular(10)
               ),
               child: Column(
@@ -122,17 +158,17 @@ class _InterestPage extends State<InterestPage> {
                   SizedBox(height: 5),
                   Row(
                     children: [
-                      ReusableTitleWidget(title: "Next Meetup", color: Colors.black, fontsize: 25),
+                      ReusableTitleWidget(title: "Next Meetup", color: Colors.white, fontsize: 25),
                       SizedBox(width: 70),
-                      Text("12 Aug 2021")
+                      Text("12 Aug 2021", style: TextStyle(color: Colors.white),)
                     ],
                   ),
                   SizedBox(height: 100),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Icon(Icons.account_circle, size: 50,),
-                      Text("+ 28 Others ")
+                      Icon(Icons.account_circle, size: 50, color: Colors.white,),
+                      Text("+ 10 Others ", style: TextStyle(color: Colors.white),)
                     ],
                   )
                 ],
