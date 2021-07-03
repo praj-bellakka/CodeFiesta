@@ -3,10 +3,7 @@ import 'package:codefiesta_app/pages/friends_page.dart';
 import 'package:codefiesta_app/pages/home_page.dart';
 import 'package:codefiesta_app/pages/places_page.dart';
 import 'package:codefiesta_app/pages/profile_page.dart';
-import 'package:codefiesta_app/services/auth.dart';
 import 'package:codefiesta_app/services/dataModels.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +34,7 @@ class _NavPage extends State<NavPage> {
   void initState() {
     super.initState();
     //load profile data from firebase
+    
     loadUserProfile();
   }
 
