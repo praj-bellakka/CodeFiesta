@@ -165,7 +165,7 @@ class ReusableColouredTagWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
+      // alignment: Alignment.centerLeft,
       constraints: BoxConstraints(minWidth: 0, maxWidth: MediaQuery.of(context).size.width * 0.85),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
@@ -189,7 +189,7 @@ class ReusableColouredInvertedTagWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
+      // alignment: Alignment.centerLeft,
       constraints: BoxConstraints(minWidth: 0, maxWidth: MediaQuery.of(context).size.width * 0.85),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(

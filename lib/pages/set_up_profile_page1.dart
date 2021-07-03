@@ -57,7 +57,7 @@ class _SettingUpProfile1 extends State<SettingUpProfile1> {
             SizedBox(height:20),
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingUpProfile2()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingUpProfile2(method: 3)));
               },
               child: ReusableBigButtonWidget(title: "I'm still exploring my options", color: Colors.red),
             ),
