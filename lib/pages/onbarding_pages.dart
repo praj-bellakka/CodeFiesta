@@ -36,7 +36,7 @@ class _OnBoardingPage extends State<OnBoardingPage> {
         color: explanationData[_currentIndex].backgroundColor,
         child: SafeArea(
             child: Container(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.only(left:16, right: 16, top: 16),
           color: explanationData[_currentIndex].backgroundColor,
           alignment: Alignment.center,
           child: Column(children: [
@@ -59,7 +59,7 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                               children: explanationData
                                   .map((e) => ExplanationPage(data: e))
                                   .toList())),
-                      flex: 4),
+                      flex: 5),
                   Expanded(
                       flex: 1,
                       child: Column(

@@ -17,6 +17,7 @@ class ProfilePage extends StatefulWidget {
 int numtags = localUserProfile['Profile']['Tags chosen'].length;
 
 class _ProfilePage extends State<ProfilePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,18 +39,27 @@ class _ProfilePage extends State<ProfilePage> {
                       width: 150,
                       child: FittedBox(
                         fit: BoxFit.fitWidth,
-                        child: Text("   " + localUserProfile["firstName"] + " " +  localUserProfile["lastName"], style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.w800, color: Colors.white),),
+                        child: Text(
+                          "   " +
+                              localUserProfile["firstName"] +
+                              " " +
+                              localUserProfile["lastName"],
+                          style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w800, color: Colors.white),
+                        ),
                       ),
                     ),
-
                     SizedBox(width: 10),
                     Text(
                       "New York, NY",
                       style: TextStyle(fontSize: 12, color: Colors.white),
                     ),
                     SizedBox(width: 50),
-                    Icon(Icons.edit, size: 35, color: Colors.white,),
+                    Icon(
+                      Icons.edit,
+                      size: 35,
+                      color: Colors.white,
+                    ),
                   ],
                 ),
 
@@ -57,18 +67,23 @@ class _ProfilePage extends State<ProfilePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(width: 10),
-                    CircleAvatar(backgroundImage:
-                    AssetImage(
-                        'assets/therock.jpg'
-                    ),
+                    CircleAvatar(
+                      backgroundImage: AssetImage('assets/therock.jpg'),
                       radius: 50,
                     ),
                     Column(
                       children: [
                         Container(
-                          constraints: BoxConstraints(minWidth: 100, maxWidth: 200),
+                          constraints:
+                              BoxConstraints(minWidth: 100, maxWidth: 200),
                           child: Text(
-                              "I am " + localUserProfile["firstName"] + " " +  localUserProfile["lastName"] + " and I love CodeFiesta! My other hobbies are drawing and cooking!", style: TextStyle(fontSize: 12, color: Colors.white)),
+                              "I am " +
+                                  localUserProfile["firstName"] +
+                                  " " +
+                                  localUserProfile["lastName"] +
+                                  " and I love CodeFiesta! My other hobbies are drawing and cooking!",
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.white)),
                         ),
                         SizedBox(height: 5),
                         Row(
@@ -112,26 +127,20 @@ class _ProfilePage extends State<ProfilePage> {
                 ),
 
                 SizedBox(height: 10),
-
               ],
             ),
           ),
-
-
 
           ////////// COMMENTS
           // Comment 1
           Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.black45)),
+                color: Colors.white, border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                CircleAvatar(backgroundImage:
-                AssetImage(
-                    'assets/therock.jpg'
-                ),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/therock.jpg'),
                   radius: 25,
                 ),
                 SizedBox(width: 10),
@@ -141,7 +150,9 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
+                        Text(localUserProfile["firstName"] +
+                            " " +
+                            localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("3 hr ago")
                       ],
@@ -168,15 +179,12 @@ class _ProfilePage extends State<ProfilePage> {
           //Comment 2
           Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.black45)),
+                color: Colors.white, border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                CircleAvatar(backgroundImage:
-                AssetImage(
-                    'assets/therock.jpg'
-                ),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/therock.jpg'),
                   radius: 25,
                 ),
                 SizedBox(width: 10),
@@ -186,7 +194,9 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
+                        Text(localUserProfile["firstName"] +
+                            " " +
+                            localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("4 hr ago")
                       ],
@@ -213,15 +223,12 @@ class _ProfilePage extends State<ProfilePage> {
           // Comment 3
           Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.black45)),
+                color: Colors.white, border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                CircleAvatar(backgroundImage:
-                AssetImage(
-                    'assets/therock.jpg'
-                ),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/therock.jpg'),
                   radius: 25,
                 ),
                 SizedBox(width: 10),
@@ -231,7 +238,9 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
+                        Text(localUserProfile["firstName"] +
+                            " " +
+                            localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("6 hr ago")
                       ],
@@ -258,15 +267,12 @@ class _ProfilePage extends State<ProfilePage> {
           // Comment 4
           Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.black45)),
+                color: Colors.white, border: Border.all(color: Colors.black45)),
             child: Row(
               children: [
                 SizedBox(width: 10),
-                CircleAvatar(backgroundImage:
-                AssetImage(
-                    'assets/therock.jpg'
-                ),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/therock.jpg'),
                   radius: 25,
                 ),
                 SizedBox(width: 10),
@@ -276,7 +282,9 @@ class _ProfilePage extends State<ProfilePage> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text(localUserProfile["firstName"] + " " +  localUserProfile["lastName"]),
+                        Text(localUserProfile["firstName"] +
+                            " " +
+                            localUserProfile["lastName"]),
                         SizedBox(width: 20),
                         Text("13 hr ago")
                       ],
