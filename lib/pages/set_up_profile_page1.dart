@@ -1,12 +1,7 @@
-import 'package:codefiesta_app/pages/explanation_page.dart';
-import 'package:codefiesta_app/pages/onbarding_pages.dart';
-import 'package:codefiesta_app/pages/register_page.dart';
 import 'package:codefiesta_app/pages/set_up_profile_page2.dart';
 import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:lorem_ipsum/lorem_ipsum.dart';
 
 class SettingUpProfile1 extends StatefulWidget {
   final lastName;

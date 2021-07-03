@@ -189,3 +189,8 @@ class _SetUpNamePage extends State<SetUpNamePage> {
     );
   }
 }
+
+//gets user profile from firebase
+Future<dynamic> loadUserProfile() async {
+  
+}
