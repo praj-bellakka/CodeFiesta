@@ -37,48 +37,62 @@ class _PlacesPage extends State<PlacesPage> {
     return Scaffold(
         body: Column(
       children: [
-        SizedBox(height: 50),
-        ReusableTitleWidget(
-            title: "Near Me", fontsize: 40, color: Colors.black),
-        SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          child: Container(
-            padding: EdgeInsets.all(10),
-            child: Row(children: [
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    tag = 1;
-                    markers = markerAll;
-                  });
-                },
-                child: tag == 1 ? ReusableClickedTagWidget(title: 'All') : ReusableTagWidget(title: 'All'),
+
+        ColoredBox(
+          color: Color(0xFF449647),
+          child: Column(
+            children: [
+              SizedBox(height: 50),
+              ReusableTitleWidget(
+                  title: "Near Me", fontsize: 40, color: Colors.white),
+
+
+              SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Row(children: [
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          tag = 1;
+                          markers = markerAll;
+                        });
+                      },
+                      child: tag == 1 ? ReusableClickedTagWidget(title: 'All', color: 0xFF449647,) : ReusableTagWidget(title: 'All', color: 0xFF449647,),
+                    ),
+                    SizedBox(width: 10),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          tag = 2;
+                          markers = markerFriends;
+                        });
+                      },
+                      child: tag == 2 ? ReusableClickedTagWidget(title: 'My Friends', color: 0xFF449647,) : ReusableTagWidget(title: 'My Friends', color: 0xFF449647,),
+                    ),
+                    SizedBox(width: 10),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          tag = 3;
+                          // displayedList =
+                          //     listItemsSample.where((i) => i.name == 'Football').toList();
+                        });
+                      },
+                      child: tag == 3 ? ReusableClickedTagWidget(title: 'Matches', color: 0xFF449647,) : ReusableTagWidget(title: 'Matches', color: 0xFF449647,),
+                    ),
+                  ]),
+                ),
               ),
-              SizedBox(width: 10),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    tag = 2;
-                    markers = markerFriends;
-                  });
-                },
-                child: tag == 2 ? ReusableClickedTagWidget(title: 'My Friends') : ReusableTagWidget(title: 'My Friends'),
-              ),
-              SizedBox(width: 10),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    tag = 3;
-                    // displayedList =
-                    //     listItemsSample.where((i) => i.name == 'Football').toList();
-                  });
-                },
-                child: tag == 3 ? ReusableClickedTagWidget(title: 'Matches') : ReusableTagWidget(title: 'Matches'),
-              ),
-            ]),
+
+              SizedBox(height: 10,)
+            ],
           ),
         ),
+
+
         Container(
             width: MediaQuery.of(context).size.width * 1,
             height: MediaQuery.of(context).size.height * 0.70,

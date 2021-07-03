@@ -55,8 +55,9 @@ class ReusableSubTitleWidget extends StatelessWidget {
 
 class ReusableTagWidget extends StatelessWidget {
   final title;
+  final color;
   //final icon;
-  ReusableTagWidget({this.title});
+  ReusableTagWidget({this.title, this.color});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,7 +69,7 @@ class ReusableTagWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.all(Radius.circular(40)),
-        color: Color(0xFF164396),
+        color: Color(color),
       ),
       child: Text(
         '$title',
@@ -81,8 +82,9 @@ class ReusableTagWidget extends StatelessWidget {
 
 class ReusableClickedTagWidget extends StatelessWidget {
   final title;
+  final color;
   //final icon;
-  ReusableClickedTagWidget({this.title});
+  ReusableClickedTagWidget({this.title, this.color});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -99,7 +101,7 @@ class ReusableClickedTagWidget extends StatelessWidget {
       child: Text(
         '$title',
         style: GoogleFonts.montserrat(
-            fontSize: 15, fontWeight: FontWeight.w800, color: Color(0xFF164396)),
+            fontSize: 15, fontWeight: FontWeight.w800, color: Color(color)),
       ),
     );
   }
@@ -275,9 +277,220 @@ class ReusableBoxWidget extends StatelessWidget {
     );
   }
 }
+class ReusableBigBoxWidget extends StatelessWidget {
+  final header;
+  final subtitle;
+  final double fontsize;
+  const ReusableBigBoxWidget({this.header, this.subtitle, this.fontsize});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 175,
+        width: 175,
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 5,
+              offset: const Offset(0, 5),
+            ),
+          ],
+        ),
+        padding: EdgeInsets.all(8),
+
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                header,
+                style: GoogleFonts.montserrat(
+                    fontSize: fontsize,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                subtitle,
+                style: GoogleFonts.montserrat(
+                    fontSize: fontsize - 2,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[500]),
+              ),
+            )
+          ],
+        ));
+  }
+}
+class ReusableSmallBoxWidget extends StatelessWidget {
+  final header;
+  final subtitle;
+  final double fontsize;
+  final String path;
+  const ReusableSmallBoxWidget({this.header, this.subtitle, this.fontsize, this.path});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+            height: 175,
+            width: 150,
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    path
+                ),
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black38,
+                  blurRadius: 5,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(8),
+          ),
+
+          SizedBox(height: 10),
+
+          Container(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      header,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      subtitle,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize - 2,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[500]),
+                    ),
+                  )
+                ],
+              )
+          )
+        ],
+      ),
+    );
+  }
+}
+class ReusableMediumBoxWidget extends StatelessWidget {
+  final header;
+  final subtitle;
+  final double fontsize;
+  final String path;
+  const ReusableMediumBoxWidget({this.header, this.subtitle, this.fontsize, this.path});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+            height: 175,
+            width: 175,
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    path
+                ),
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black38,
+                  blurRadius: 5,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(8),
+          ),
+
+          SizedBox(height: 10),
+
+          Container(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      header,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      subtitle,
+                      style: GoogleFonts.montserrat(
+                          fontSize: fontsize - 2,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[500]),
+                    ),
+                  )
+                ],
+              )
+          )
+        ],
+      ),
+    );
+  }
+}
 
 //Friends PopUP Modal
+class ReusableBigButtonWidget extends StatelessWidget {
+  final title;
+  final color;
+  const ReusableBigButtonWidget({this.title, this.color});
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.all(5),
+        alignment: Alignment.center,
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: 60,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(13),
+        ),
+        child: Text(title,
+            style: GoogleFonts.montserrat(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 18)));
+  }
+}
 class ReusablePopupFriendsWidget extends StatelessWidget {
   final name;
   final tags;
@@ -353,56 +566,7 @@ class ReusablePopupFriendsWidget extends StatelessWidget {
   }
 }
 
-class ReusableBigBoxWidget extends StatelessWidget {
-  final header;
-  final subtitle;
-  final double fontsize;
-  const ReusableBigBoxWidget({this.header, this.subtitle, this.fontsize});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        height: 175,
-        width: 175,
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black38,
-              blurRadius: 5,
-              offset: const Offset(0, 5),
-            ),
-          ],
-        ),
-        padding: EdgeInsets.all(8),
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                header,
-                style: GoogleFonts.montserrat(
-                    fontSize: fontsize,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black),
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                subtitle,
-                style: GoogleFonts.montserrat(
-                    fontSize: fontsize - 2,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey[500]),
-              ),
-            )
-          ],
-        ));
-  }
-}
 
 class ReusableDescriptionWidget extends StatelessWidget {
   final description;
@@ -421,161 +585,3 @@ class ReusableDescriptionWidget extends StatelessWidget {
   }
 }
 
-class ReusableBigButtonWidget extends StatelessWidget {
-  final title;
-  final color;
-  const ReusableBigButtonWidget({this.title, this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.all(5),
-        alignment: Alignment.center,
-        width: MediaQuery.of(context).size.width * 0.8,
-        height: 60,
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(13),
-        ),
-        child: Text(title,
-            style: GoogleFonts.montserrat(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 18)));
-  }
-}
-class ReusableSmallBoxWidget extends StatelessWidget {
-   final header;
-   final subtitle;
-   final double fontsize;
-   final String path;
-   const ReusableSmallBoxWidget({this.header, this.subtitle, this.fontsize, this.path});
-
-   @override
-   Widget build(BuildContext context) {
-     return Container(
-       child: Column(
-         children: [
-           Container(
-               height: 175,
-               width: 150,
-               margin: EdgeInsets.symmetric(horizontal: 10),
-             decoration: BoxDecoration(
-               image: DecorationImage(
-                 image: AssetImage(
-                     path
-                 ),
-                 fit: BoxFit.fill,
-               ),
-               borderRadius: BorderRadius.all(Radius.circular(20)),
-               color: Colors.white,
-               boxShadow: [
-                 BoxShadow(
-                   color: Colors.black38,
-                   blurRadius: 5,
-                   offset: const Offset(0, 5),
-                 ),
-               ],
-             ),
-               padding: EdgeInsets.all(8),
-           ),
-
-           Container(
-               child: Column(
-                 children: [
-                   Align(
-                     alignment: Alignment.centerLeft,
-                     child: Text(
-                       header,
-                       style: GoogleFonts.montserrat(
-                           fontSize: fontsize,
-                           fontWeight: FontWeight.w700,
-                           color: Colors.black),
-                     ),
-                   ),
-                   Align(
-                     alignment: Alignment.centerLeft,
-                     child: Text(
-                       subtitle,
-                       style: GoogleFonts.montserrat(
-                           fontSize: fontsize - 2,
-                           fontWeight: FontWeight.w500,
-                           color: Colors.grey[500]),
-                     ),
-                   )
-                 ],
-               )
-           )
-         ],
-       ),
-     );
-   }
- }
-
-class ReusableMediumBoxWidget extends StatelessWidget {
-  final header;
-  final subtitle;
-  final double fontsize;
-  final String path;
-  const ReusableMediumBoxWidget({this.header, this.subtitle, this.fontsize, this.path});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            height: 175,
-            width: 175,
-            margin: EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    path
-                ),
-                fit: BoxFit.fill,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black38,
-                  blurRadius: 5,
-                  offset: const Offset(0, 5),
-                ),
-              ],
-            ),
-            padding: EdgeInsets.all(8),
-          ),
-
-          Container(
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      header,
-                      style: GoogleFonts.montserrat(
-                          fontSize: fontsize,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      subtitle,
-                      style: GoogleFonts.montserrat(
-                          fontSize: fontsize - 2,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey[500]),
-                    ),
-                  )
-                ],
-              )
-          )
-        ],
-      ),
-    );
-  }
-}

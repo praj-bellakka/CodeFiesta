@@ -44,7 +44,7 @@ class _FriendsPage extends State<FriendsPage> {
                                     tag = true;
                                   });
                                 },
-                                child: ReusableClickedTagWidget(title: 'Events',),
+                                child: ReusableClickedTagWidget(title: 'Events', color: 0xFF164396),
                               ),
                               SizedBox(width: 10), //Spacing between tags
                               InkWell(
@@ -53,7 +53,7 @@ class _FriendsPage extends State<FriendsPage> {
                                     tag = false;
                                   });
                                 },
-                                child: ReusableTagWidget(title: "Interest Groups",),
+                                child: ReusableTagWidget(title: "Interest Groups", color: 0xFF164396,),
                               ),
                             ],)
                         ),
@@ -94,11 +94,6 @@ class _FriendsPage extends State<FriendsPage> {
                       ],
                     ),
                   ),
-
-
-                  // Tags
-
-
 
 
                   SizedBox(height: 30),
@@ -153,13 +148,13 @@ class _FriendsPage extends State<FriendsPage> {
                           header: "Cook Together",
                           subtitle: "Come together and cook...",
                           fontsize: 16,
-                            path: 'assets/event5.jpg'
+                            path: 'assets/cooking.jpg'
                         ),
                         ReusableSmallBoxWidget(
                           header: "Netflix Watch Party",
                           subtitle: "Tired and looking for...",
                           fontsize: 16,
-                            path: 'assets/home2.jpg'
+                            path: 'assets/netflix.jpg'
                         ),
                       ]),
                     ),
@@ -185,7 +180,7 @@ class _FriendsPage extends State<FriendsPage> {
                           header: "Casual Dining",
                           subtitle: "Just want to get...",
                           fontsize: 16,
-                          path: 'assets/home6.jpg',
+                          path: 'assets/casual-dining.jpg',
                         ),
                       ]),
                     ),
@@ -204,119 +199,140 @@ class _FriendsPage extends State<FriendsPage> {
                 scrollDirection: Axis.vertical,
                 child: Column(
                   children: [
-                    SizedBox(height: 50),
-                    // Title
-                    ReusableTitleWidget(title: "Interest Groups", fontsize: 40, color: Colors.black),
 
-                    // Tags
-                    Container(
-                        padding: EdgeInsets.all(10),
-                        child: Row(children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                tag = true;
-                              });
-                            },
-                            child: ReusableTagWidget(title: 'Events',),
-                          ),
-                          SizedBox(width: 10), //Spacing between tags
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                tag = false;
-                              });
-                            },
-                            child: ReusableClickedTagWidget(title: "Interest Groups",),
-                          ),
-                        ],)
-                    ),
+                    ColoredBox(
+                      color: Color(0xFF164396),
+                      child: Column(
+                        children: [
+                          SizedBox(height: 50),
+                          // Title
+                          ReusableTitleWidget(title: "Interest Groups", fontsize: 40, color: Colors.white),
 
-                    SizedBox(height: 10),
-                    // Interest Groups tags
-                    SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Row(children: [
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  subtag = 1;
-                                });
-                              },
-                              child: subtag == 1 ? ReusableClickedTagWidget(title: 'My Interests') : ReusableTagWidget(title: 'My Interests'),
-                            ),
-                            SizedBox(width: 10), //Spacing between tags
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  subtag = 2;
-                                });
-                              },
-                              child: subtag == 2 ? ReusableClickedTagWidget(title: 'Featured') : ReusableTagWidget(title: 'Featured'),
-                            ),
-                            SizedBox(width: 10), //Spacing between tags
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  subtag = 3;
-                                });
-                              },
-                              child: subtag == 3 ? ReusableClickedTagWidget(title: 'Most Active') : ReusableTagWidget(title: 'Most Active'),
-                            ),
-                            SizedBox(width: 10), //Spacing between tags
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  subtag = 4;
-                                });
-                              },
-                              child: subtag == 4 ? ReusableClickedTagWidget(title: 'Newest') : ReusableTagWidget(title: 'Newest'),
-                            )
-                          ],)
-                      ),
-                    ),
-
-                    SizedBox(height: 10),
-                    // Search Bar
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black38,
-                            blurRadius: 25,
-                            offset: const Offset(0, 10),
+                          Container(
+                              padding: EdgeInsets.all(10),
+                              child: Row(children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      tag = true;
+                                    });
+                                  },
+                                  child: ReusableTagWidget(title: 'Events', color: 0xFF164396),
+                                ),
+                                SizedBox(width: 10), //Spacing between tags
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      tag = false;
+                                    });
+                                  },
+                                  child: ReusableClickedTagWidget(title: "Interest Groups", color: 0xFF164396),
+                                ),
+                              ],)
                           ),
+
+                          SizedBox(height: 10),
+                          // Interest Groups tags
+                          SingleChildScrollView(
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            child: Container(
+                                padding: EdgeInsets.all(10),
+                                child: Row(children: [
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        subtag = 1;
+                                      });
+                                    },
+                                    child: subtag == 1 ? ReusableClickedTagWidget(title: 'My Interests', color: 0xFF164396) : ReusableTagWidget(title: 'My Interests', color: 0xFF164396),
+                                  ),
+                                  SizedBox(width: 10), //Spacing between tags
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        subtag = 2;
+                                      });
+                                    },
+                                    child: subtag == 2 ? ReusableClickedTagWidget(title: 'Featured', color: 0xFF164396) : ReusableTagWidget(title: 'Featured', color: 0xFF164396),
+                                  ),
+                                  SizedBox(width: 10), //Spacing between tags
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        subtag = 3;
+                                      });
+                                    },
+                                    child: subtag == 3 ? ReusableClickedTagWidget(title: 'Most Active', color: 0xFF164396) : ReusableTagWidget(title: 'Most Active', color: 0xFF164396),
+                                  ),
+                                  SizedBox(width: 10), //Spacing between tags
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        subtag = 4;
+                                      });
+                                    },
+                                    child: subtag == 4 ? ReusableClickedTagWidget(title: 'Newest', color: 0xFF164396) : ReusableTagWidget(title: 'Newest', color: 0xFF164396),
+                                  )
+                                ],)
+                            ),
+                          ),
+
+                          SizedBox(height: 10),
+                          // Search Bar
+                          Container(
+                            margin: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black26.withOpacity(0.5),
+                                  spreadRadius: 1,
+                                  blurRadius: 7,
+                                  offset: Offset(0, 3), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: TextField(
+                                onTap: () {},
+                                readOnly: true,
+                                decoration: InputDecoration(
+                                  labelText: "What are you looking for?",
+                                  contentPadding: EdgeInsets.fromLTRB(20.0, 7.0, 20.0, 7.0),
+                                  prefixIcon: Icon(Icons.search),
+                                  border: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  enabledBorder: InputBorder.none,
+                                  errorBorder: InputBorder.none,
+                                  disabledBorder: InputBorder.none,
+                                )),
+                          ),
+                          SizedBox(height: 20,)
                         ],
                       ),
-                      child: TextField(
-                          onTap: () {},
-                          readOnly: true,
-                          decoration: InputDecoration(
-                            labelText: "What are you looking for?",
-                            contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                            prefixIcon: Icon(Icons.search),
-                            border: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                          )),
                     ),
 
                     SizedBox(height: 30),
                     // Sub-Title 1
-                      ReusableSubTitleWidget(title: "Your Groups", fontsize: 20, color: Colors.black,),
-                      SizedBox(width: 160),
-                      Icon(
-                        Icons.add_box,
-                        size: 35
-                      ),
+                    Row(
+                      children: [
+                        ReusableSubTitleWidget(title: "Your Groups", fontsize: 20, color: Colors.black,),
+                        SizedBox(width: 90),
+
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              // Insert Func here
+                            });
+                          },
+                          child: Text(
+                            '+ New Group'
+                          ),
+                        )
+                      ],
+                    ),
 
                     SingleChildScrollView(
                       physics: BouncingScrollPhysics(),
@@ -385,7 +401,7 @@ class _FriendsPage extends State<FriendsPage> {
                           header: "Golfing",
                           subtitle: "Break a sweat...",
                           fontsize: 16,
-                          path: 'assets/home7.jpg',
+                          path: 'assets/golfing.jpg',
                         ),
                       ),
                       InkWell(
@@ -399,7 +415,7 @@ class _FriendsPage extends State<FriendsPage> {
                           header: "Fishing Funs",
                           subtitle: "Catch a big one...",
                           fontsize: 16,
-                          path: 'assets/home8.jpg',
+                          path: 'assets/fishing.jpg',
                         ),
                       ),
                     ]),
@@ -416,7 +432,7 @@ class _FriendsPage extends State<FriendsPage> {
                           header: "Casino Trips",
                           subtitle: "Try your luck...",
                           fontsize: 16,
-                          path: 'assets/home9.jpg',
+                          path: 'assets/casino.jpg',
                         ),
                       ),
                       InkWell(
@@ -430,7 +446,7 @@ class _FriendsPage extends State<FriendsPage> {
                           header: "Italian Cooking",
                           subtitle: "Cook your own ca...",
                           fontsize: 16,
-                          path: 'assets/home2.jpg',
+                          path: 'assets/italian-cooking.jpg',
                         ),
                       ),
                     ]),
