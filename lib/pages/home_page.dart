@@ -1,7 +1,10 @@
+import 'package:codefiesta_app/pages/my_passport.dart';
 import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -394,12 +397,26 @@ class _Home extends State<Home> {
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                         child: Row(children: [
-                          ReusableBoxWidget(
-                            header: "My Passport",
-                            subtitle: "All your travel documents...",
-                            fontsize: 16,
-                            path: 'assets/home7.jpg',
+                          InkWell(
+                            onTap: () async {
+                              //load list of biometrics supported by device for passport feature
+                              final isAuthenticated = await LocalAuthApi.authenticate();
+                              if (!isAuthenticated) {
+                                print('Authenticate');
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(builder: (context) => MyPassportPage()),
+                                );
+                              }
+
+                            },
+                            child: ReusableBoxWidget(
+                              header: "My Passport",
+                              subtitle: "All your travel documents...",
+                              fontsize: 16,
+                              path: 'assets/home7.jpg',
+                            ),
                           ),
+                         
                           ReusableBoxWidget(
                             header: "Emergency contacts",
                             subtitle: "List of important contacts in...",
@@ -431,5 +448,42 @@ _launchURL(String url) async {
     await launch(url, forceWebView: true);
   } else {
     throw 'Could not launch $url';
+  }
+}
+
+class LocalAuthApi {
+  static final _auth = LocalAuthentication();
+
+  static Future<bool> hasBiometrics() async {
+    try {
+      return await _auth.canCheckBiometrics;
+    } on PlatformException catch (e) {
+      return false;
+    }
+  }
+
+  static Future<List<BiometricType>> getBiometrics() async {
+    try {
+      return await _auth.getAvailableBiometrics();
+    } on PlatformException catch (e) {
+      return <BiometricType>[];
+    }
+  }
+
+  static Future<bool> authenticate() async {
+    final isAvailable = await hasBiometrics();
+    print(isAvailable);
+    if (!isAvailable) return false;
+
+    try {
+      return await _auth.authenticate(
+        localizedReason: 'Scan fingerprint to cont.',
+        useErrorDialogs: true,
+        stickyAuth: true,
+      );
+    } on PlatformException catch (e) {
+      print(e);
+      return false;
+    }
   }
 }
