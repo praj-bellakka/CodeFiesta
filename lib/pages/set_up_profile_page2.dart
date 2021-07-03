@@ -94,7 +94,7 @@ class _SettingUpProfile2 extends State<SettingUpProfile2> {
             SizedBox(height: 20),
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingUpProfile3(useType: 'Studying')));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingUpProfile3(useType: 'Studying', country: countryBasedIn, movingStatus: widget.method,)));
               },
               child: ReusableBigButtonWidget(
                   title: 'Studying', color: Colors.orange),
@@ -102,7 +102,7 @@ class _SettingUpProfile2 extends State<SettingUpProfile2> {
             SizedBox(height: 20),
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingUpProfile3(useType: 'Working')));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingUpProfile3(useType: 'Working', country: countryBasedIn, movingStatus: widget.method)));
               },
               child: ReusableBigButtonWidget(
                   title: 'Working', color: Colors.orange),
