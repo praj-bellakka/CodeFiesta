@@ -46,7 +46,7 @@ class _SettingUpProfile4 extends State<SettingUpProfile4> {
                     "Last but not least, what are some\nof your interests? Don’t worry, you’ll \nbe able to edit this in the future!"),
             SizedBox(height: 20),
             ReusableTitleWidget(
-              title: "Choose up to 6 options!",
+              title: "Choose up to 4 options!",
               fontsize: 15,
               color: Colors.black,
             ),

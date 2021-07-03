@@ -1,6 +1,4 @@
-import 'package:codefiesta_app/pages/friends_page.dart';
-import 'package:codefiesta_app/pages/navBar.dart';
-import 'package:codefiesta_app/pages/places_page.dart';
+import 'package:codefiesta_app/pages/sign_in.dart';
 import 'package:codefiesta_app/services/dataModels.dart';
 import 'package:codefiesta_app/services/reusable_widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -333,6 +331,10 @@ class _ProfilePage extends State<ProfilePage> {
                     setState(() {
                       _auth.signOut();
                     });
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                      ModalRoute.withName('/'));
                   },
                   child: Row(
                     children: [
